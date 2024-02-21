@@ -17,18 +17,18 @@ if (knapV==true){Pxpos=Pxpos-Pvel;}
 
 
 
-void keyPress(){
+void keyPress(){ //bevæger spilleren
 if (keyCode == RIGHT) {
       knapH = true;
     } else if (keyCode == LEFT) {
       knapV = true;
     }
 }
-void keyRelease(){
+void keyRelease(){ //stopper spillerens bevægelse
 if (keyCode == RIGHT) {
       knapH = false;
     } else if (keyCode == LEFT) {
-      knapV = false;
+      knapV = false; 
     }
 }
 }

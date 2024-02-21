@@ -1,6 +1,5 @@
 Player p;
 
-
 void setup(){
 p=new Player(20,20,2,2);
 size(500,500);
