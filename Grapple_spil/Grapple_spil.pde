@@ -1,11 +1,22 @@
-Player player;
+Player p;
 
 
 void setup(){
-player=new Player(20,20,5);
+p=new Player(20,20,2,2);
 size(500,500);
 }
 
 void draw(){
-player.drawPlayer();
+  background(100);
+p.drawPlayer();
+if (p.knapV==true){println("hej");}
+if (p.knapV==false){println("x");}
+}
+
+void keyPressed() {
+  p.keyPress();
+}
+
+void keyReleased() {
+  p.keyRelease();
 }
