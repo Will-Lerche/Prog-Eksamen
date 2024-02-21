@@ -1,8 +1,8 @@
 class Player { //Det her er spiller klassen
-int Pxpos,Pypos, Pvel,Pacc;
+float Pxpos,Pypos, Pvel,Pacc;
 boolean knapH, knapV;
 
-Player(int xpos,int ypos,int vel,int acc){
+Player(float xpos,float ypos,float vel,float acc){
 Pxpos=xpos;
 Pypos=ypos;
 Pvel=vel;
@@ -12,7 +12,8 @@ Pacc=acc;
 void drawPlayer(){
 rect(Pxpos, Pypos, 50, 50); //tmp player
 if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;}
-if (knapV==true){Pxpos=Pxpos-Pvel;}
+if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
+if (Pvel>15){Pvel=2;}
 }
 
 
