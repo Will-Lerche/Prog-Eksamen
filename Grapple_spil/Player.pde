@@ -13,8 +13,8 @@ void drawPlayer(){
 rect(Pxpos, Pypos, 50, 50); //tmp player
 if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;}
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
-if (knapH==true||)
-if (Pvel>15){Pvel=2;}
+if (Pvel>15){Pvel=15;}
+if (knapH==false && knapV==false){Pvel=2;}
 }
 
 

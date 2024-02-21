@@ -1,7 +1,7 @@
 Player p;
 
 void setup(){
-p=new Player(20,20,2,1.01);
+p=new Player(20,20,2,1.02);
 size(500,500);
 }
 
