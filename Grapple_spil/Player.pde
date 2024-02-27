@@ -3,7 +3,7 @@ float Pxpos,Pypos, Pvel,Pacc;
 boolean knapH, knapV;
 
 Player(float xpos,float ypos,float vel,float acc){
-Pxpos=xpos;
+Pxpos=xpos; 
 Pypos=ypos;
 Pvel=vel;
 Pacc=acc;
@@ -11,7 +11,7 @@ Pacc=acc;
 
 void drawPlayer(){
 rect(Pxpos, Pypos, 50, 50); //tmp player
-if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;}
+if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleration
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
 if (Pvel>15){Pvel=15;}
 if (knapH==false && knapV==false){Pvel=2;}
