@@ -1,7 +1,8 @@
 Player p;
+Platform boks;
 
 void setup(){
-p=new Player(20,20,2,1.02); //laver et objekt "p" som er fra player klassen
+p=new Player(20,400,2,1.02); //laver et objekt "p" som er fra player klassen
 size(500,500);
 }
 

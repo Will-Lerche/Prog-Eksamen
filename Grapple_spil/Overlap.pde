@@ -2,8 +2,8 @@ class Overlap{
   //Koordinat, højde og bredde til objektet
   int x; int y; int h; int b;
   //Henter koordinaterne, højden og bredden for objektet der bruger klassen
-  Overlap(int xin, int yin, int hin, int bin){
-  x = xin; y = yin; h = hin; b = bin;
+  Overlap(){
+ 
   }
   boolean overlap(){
   //variabel, som ændres hvis der er overlap
