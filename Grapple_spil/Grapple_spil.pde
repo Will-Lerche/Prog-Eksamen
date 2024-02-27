@@ -8,8 +8,7 @@ size(500,500);
 void draw(){
   background(100);
 p.drawPlayer();
-//if (p.knapV==true){println("hej");}
-//if (p.knapV==false){println("x");}
+
 }
 
 void keyPressed() {
