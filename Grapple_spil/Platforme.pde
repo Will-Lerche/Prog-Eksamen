@@ -6,7 +6,7 @@ Platform(int xin, int yin, int hin, int bin){
  void boks(){
  rect(x,y,b,h);
  if(overlap()){
- p.
+// p.
  }
  
  }

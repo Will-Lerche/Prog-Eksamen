@@ -1,6 +1,6 @@
 class Player { //Det her er spiller klassen
 float Pxpos,Pypos, Pvel,Pacc;
-boolean knapH, knapV;
+boolean knapH, knapV, knapJ, onGround;
 
 Player(float xpos,float ypos,float vel,float acc){
 Pxpos=xpos; 
@@ -15,6 +15,11 @@ if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleratio
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
 if (Pvel>15){Pvel=15;}
 if (knapH==false && knapV==false){Pvel=2;}
+
+if (overlap()){onGround==true;}
+if(onGround){
+if (knapJ==true){Pypos=+10;}
+}
 }
 
 
@@ -25,6 +30,9 @@ if (keyCode == RIGHT) {
     } else if (keyCode == LEFT) {
       knapV = true;
     }
+      else if (keyCode==UP){
+      knapJ = true;
+      }
 }
 void keyRelease(){ //stopper spillerens bevægelse
 if (keyCode == RIGHT) {
@@ -32,5 +40,8 @@ if (keyCode == RIGHT) {
     } else if (keyCode == LEFT) {
       knapV = false; 
     }
+      else if (keyCode==UP){
+      knapJ = false;
+      }
 }
 }
