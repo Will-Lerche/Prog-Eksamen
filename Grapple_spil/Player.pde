@@ -10,6 +10,7 @@ Pacc=acc;
 }
 
 void drawPlayer(){
+  overlap();
 rect(Pxpos, Pypos, 50, 50); //tmp player
 if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleration
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
