@@ -1,4 +1,4 @@
-class Player { //Det her er spiller klassen
+class Player extends Overlap{ //Det her er spiller klassen
 float Pxpos,Pypos, Pvel,Pacc;
 boolean knapH, knapV, knapJ, onGround;
 
@@ -16,10 +16,14 @@ if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleratio
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
 if (Pvel>15){Pvel=15;}
 if (knapH==false && knapV==false){Pvel=2;}
-
-if (overlap()){onGround==true;}
+println(onGround);
+if (overlap()){onGround=true;}
+if (!onGround){
+Pypos=Pypos+2;
+}
+if (knapJ==true){Pypos=Pypos-10;} //slet
 if(onGround){
-if (knapJ==true){Pypos=+10;}
+if (knapJ==true){Pypos=Pypos-10;}
 }
 }
 

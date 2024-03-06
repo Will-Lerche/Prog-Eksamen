@@ -11,8 +11,8 @@ class Overlap{
   
   //tjekker om der er overlap mellem spilleren og alle objekter som klassen nedarver til. 
   //Variablen (boolean) ændres derefter til true for at vise der er overlap
-  //if(p.b > x && p.y + p.h > y && p.x < x + b && p.y < y + h){
-  //overlap = true;}
+  if(50 > x && p.Pypos + 50 > y && p.Pxpos < x + b && p.Pypos < y + h){
+  overlap = true;}
   
   return overlap;
   }
