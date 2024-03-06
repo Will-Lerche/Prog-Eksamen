@@ -11,20 +11,18 @@ Pacc=acc;
 }
 
 void drawPlayer(){
- // overlap();
 rect(Pxpos, Pypos, 50, 50); //tmp player
 if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleration
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
 if (Pvel>15){Pvel=15;}
 if (knapH==false && knapV==false){Pvel=2;}
 
-//if (overlap()){onGround=true;}
+
 if (!onGround){
 Pypos=Pypos+1;
 }
-
 if(onGround && knapJ){
-Pypos=Pypos-10;}
+Pypos=Pypos-40;}
 
 }
 
