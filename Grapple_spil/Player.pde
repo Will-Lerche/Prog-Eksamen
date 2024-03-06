@@ -1,5 +1,6 @@
-class Player extends Overlap{ //Det her er spiller klassen
+class Player { //Det her er spiller klassen
 float Pxpos,Pypos, Pvel,Pacc;
+float b=50,h=50;
 boolean knapH, knapV, knapJ, onGround;
 
 Player(float xpos,float ypos,float vel,float acc){
@@ -10,21 +11,21 @@ Pacc=acc;
 }
 
 void drawPlayer(){
-  overlap();
+ // overlap();
 rect(Pxpos, Pypos, 50, 50); //tmp player
 if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleration
 if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;}
 if (Pvel>15){Pvel=15;}
 if (knapH==false && knapV==false){Pvel=2;}
-println(onGround);
-if (overlap()){onGround=true;}
+
+//if (overlap()){onGround=true;}
 if (!onGround){
-Pypos=Pypos+2;
+Pypos=Pypos+1;
 }
-if (knapJ==true){Pypos=Pypos-10;} //slet
-if(onGround){
-if (knapJ==true){Pypos=Pypos-10;}
-}
+
+if(onGround && knapJ){
+Pypos=Pypos-10;}
+
 }
 
 
