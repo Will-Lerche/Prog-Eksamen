@@ -15,7 +15,8 @@ class Overlap{
   //Variablen (boolean) ændres derefter til true for at vise der er overlap
   if(p.b > x && p.Pypos + p.h > y && p.Pxpos < x + b && p.Pypos < y + h){
   overlap = true;}else{overlap=false;}
-  
+  println(x,y,b,h);
+  println(p.Pxpos,p.Pypos);
   
   return overlap;
   }

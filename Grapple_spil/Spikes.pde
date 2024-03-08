@@ -5,7 +5,7 @@ Spike(int xin, int yin, int hin, int bin){
   }
   
   void createSpike(){
-    spike=loadImage("spike.png");
+  spike=loadImage("spike.png");
   image(spike,x,y,b,h);
   overlap();
   }
