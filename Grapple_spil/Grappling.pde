@@ -58,8 +58,8 @@ class Pendulum {
     fill(175);
     if (dragging) fill(0);
     // Draw the ball
-    p.Pxpos = position.x; 
-    p.Pypos = position.y;
+    p.Pxpos = position.x - 25; 
+    p.Pypos = position.y - 25;
   }
 
 

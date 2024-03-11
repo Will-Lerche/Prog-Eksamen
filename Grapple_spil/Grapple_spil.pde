@@ -17,6 +17,7 @@ size(500,500);
 
 void draw(){
   background(100);
+  if(grappleActive) g.go();
 p.drawPlayer();
 b1.createBoks();
 b2.createBoks();
@@ -25,7 +26,7 @@ s1.createSpike();
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
 if (s1.overlap) println("Hej"); //tester
 //println("b1:", b1.overlap, " b2:", b2.overlap );
-if(grappleActive) g.go();
+
 
 }
 
