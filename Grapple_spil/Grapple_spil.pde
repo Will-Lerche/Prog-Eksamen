@@ -25,8 +25,9 @@ s1.createSpike();
 
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
 if (s1.overlap) println("Hej"); //tester
-//println("b1:", b1.overlap, " b2:", b2.overlap );
-
+println("b1:", b1.overlap, " b2:", b2.overlap,"s1",s1.overlap, " onground : ", p.onGround );
+//print("b2.x:",b2.x,"b2.y",b2.y,"b2.h",b2.h,"b2.b",b2.b,"p.Pxpos",p.Pxpos,"p.Pypos",p.Pypos);
+//println(" ",p.b > b2.x , p.Pypos + p.h > b2.y , p.Pxpos < b2.x + b2.b , p.Pypos < b2.y + b2.h);
 
 }
 

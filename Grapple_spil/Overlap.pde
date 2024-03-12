@@ -13,10 +13,14 @@ class Overlap{
 
   //tjekker om der er overlap mellem spilleren og alle objekter som klassen nedarver til. 
   //Variablen (boolean) ændres derefter til true for at vise der er overlap
-  if(p.b > x && p.Pypos + p.h > y && p.Pxpos < x + b && p.Pypos < y + h){
+ // if(p.b > x && p.Pypos + p.h > y && p.Pxpos < x + b && p.Pypos < y + h){
+     if(p.Pxpos>x && p.Pxpos<x+b && p.Pypos>y&& p.Pypos<y+h ||
+        p.Pxpos+p.b>x && p.Pxpos<x+b && p.Pypos>y&& p.Pypos<y+h||
+        p.Pxpos>x && p.Pxpos<x+b && p.Pypos>y+p.h&& p.Pypos<y+h||
+        p.Pxpos+p.b>x && p.Pxpos<x+b && p.Pypos+p.h>y&& p.Pypos<y+h){
   overlap = true;}else{overlap=false;}
-  println(x,y,b,h);
-  println(p.Pxpos,p.Pypos);
+ // println(x,y,b,h);
+ // println(p.Pxpos,p.Pypos);
   
   return overlap;
   }
