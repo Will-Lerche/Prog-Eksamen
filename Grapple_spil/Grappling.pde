@@ -27,8 +27,6 @@ class Pendulum {
   }
 
   void go() {
-    
-    
     update();
     drag();    //for user interaction
     display();
@@ -53,13 +51,13 @@ class Pendulum {
     stroke(0);
     strokeWeight(2);
     // Draw the arm
-    line(origin.x, origin.y, position.x, position.y);
+    line(origin.x, origin.y, p.Pxpos+25, p.Pypos+25);
     ellipseMode(CENTER);
     fill(175);
     if (dragging) fill(0);
     // Draw the ball
-    p.Pxpos = position.x - 25; 
-    p.Pypos = position.y - 25;
+    p.Pxpos = position.x; 
+    p.Pypos = position.y;
   }
 
 
@@ -86,8 +84,8 @@ class Pendulum {
     // pendulum origin and mouse position
     // we assign that angle to the pendulum
     if (dragging) {
-      PVector diff = PVector.sub(origin, new PVector(mouseX, mouseY));      // Difference between 2 points
-      angle = atan2(-1*diff.y, diff.x) - radians(90);                      // Angle relative to vertical axis
+      PVector diff = PVector.sub(origin, new PVector(p.Pxpos, p.Pypos));      // Difference between 2 points
+      angle = atan2(p.Pxpos, p.Pypos);                      // Angle relative to vertical axis
     }
   }
 }
