@@ -53,7 +53,7 @@ class Pendulum {
     // Draw the arm
     line(origin.x, origin.y, p.Pxpos+25, p.Pypos+25);
     ellipseMode(CENTER);
-    fill(175);
+    fill(255);
     if (dragging) fill(0);
     // Draw the ball
     p.Pxpos = position.x; 
