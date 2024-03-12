@@ -3,7 +3,10 @@ Pendulum g;
 Spike s1;
 Platform b1;
 Platform b2;
+Health h;
+
 boolean grappleActive = false;
+
 
 
 void setup(){
@@ -11,6 +14,9 @@ p=new Player(20,380,2,1.02); //laver et objekt "p" som er fra player klassen
 b1=new Platform(10,430,64,64);
 b2=new Platform(120,430,64,64);
 s1=new Spike(70,430,64,164);
+h=new Health(10,10);
+
+
 g = new Pendulum(new PVector(width/2,0),175);
 size(500,500);
 }
@@ -23,11 +29,13 @@ b1.createBoks();
 b2.createBoks();
 s1.createSpike();
 
+h.Hearts();
+
+
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
-if (s1.overlap) println("Hej"); //tester
-println("b1:", b1.overlap, " b2:", b2.overlap,"s1",s1.overlap, " onground : ", p.onGround );
-//print("b2.x:",b2.x,"b2.y",b2.y,"b2.h",b2.h,"b2.b",b2.b,"p.Pxpos",p.Pxpos,"p.Pypos",p.Pypos);
-//println(" ",p.b > b2.x , p.Pypos + p.h > b2.y , p.Pxpos < b2.x + b2.b , p.Pypos < b2.y + b2.h);
+if (s1.overlap) h.liv=h.liv-1; //hvis man rammer spike så mister man liv
+println(h.liv );
+
 
 }
 
