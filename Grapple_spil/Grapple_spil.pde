@@ -11,7 +11,7 @@ boolean grappleActive = false;
 
 void setup(){
 p=new Player(20,380,2,1.02); //laver et objekt "p" som er fra player klassen
-b1=new Platform(10,430,64,64);
+b1=new Platform(10,430,64,500);
 b2=new Platform(120,430,64,64);
 s1=new Spike(70,430,64,164);
 h=new Health(10,10);
@@ -48,8 +48,11 @@ void keyReleased() {
 }
 
 void mousePressed(){
- grappleActive = true;
+  g.stopDragging();
  g.origin = new PVector(mouseX,mouseY);
+ g.r = mag(g.origin.x-(p.Pxpos+25), g.origin.y-(p.Pypos+25));
+ grappleActive = true;
+ println("waaah");
 }
 
 void mouseReleased(){

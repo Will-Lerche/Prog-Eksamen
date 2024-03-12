@@ -8,21 +8,22 @@ Pxpos=xpos;
 Pypos=ypos;
 Pvel=vel;
 Pacc=acc;
+
 }
 
 void drawPlayer(){
 rect(Pxpos, Pypos, 50, 50); //tmp player
-if (knapH==true){Pxpos=Pxpos+Pvel;Pvel=Pvel*Pacc;} //giver spilleren acceleration og lader ham gå til højre
-if (knapV==true){Pxpos=Pxpos-Pvel;Pvel=Pvel*Pacc;} //samme som over bare til venstre
-if (Pvel>15){Pvel=15;} //capper velocitien
-if (knapH==false && knapV==false){Pvel=2;} //reseter velocity hvis man ikke bevæger sig
+if (knapH == true){Pxpos = Pxpos + Pvel;Pvel = Pvel * Pacc;} //giver spilleren acceleration og lader ham gå til højre
+if (knapV == true){Pxpos = Pxpos - Pvel;Pvel = Pvel * Pacc;} //samme som over bare til venstre
+if (Pvel > 10){Pvel = 10;} //capper velocitien
+if (knapH == false && knapV == false){Pvel = 2.5;} //resetter velocity hvis man ikke bevæger sig
 
 
-if (!onGround){ //hvis man ikke er on Ground så falder ma ned
-Pypos=Pypos+1;
+if (!onGround){ //hvis man ikke er on Ground så falder man ned
+Pypos = Pypos + 1;
 }
 if(onGround && knapJ){ //hvis man hopper imens han er på ground så hopper han
-Pypos=Pypos-40;}
+Pypos = Pypos - 40;}
 
 }
 
