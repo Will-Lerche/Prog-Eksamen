@@ -33,8 +33,8 @@ h.Hearts();
 
 
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
-if (s1.overlap) h.liv=h.liv-1; //hvis man rammer spike så mister man liv
-println(h.liv );
+if (s1.overlap && h.liv>=0) h.liv=h.liv-1; //hvis man rammer spike så mister man liv
+
 
 
 }
