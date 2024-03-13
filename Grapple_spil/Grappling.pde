@@ -7,7 +7,7 @@ class Pendulum {
   float aVelocity;     // Angle velocity
   float aAcceleration; // Angle acceleration
 
-    float ballr;         // Ball radius
+  float ballr;         // Ball radius
   float damping;       // Arbitary damping amount
 
   boolean dragging = false;
@@ -59,18 +59,4 @@ class Pendulum {
     p.Pxpos = position.x; 
     p.Pypos = position.y;
   }
-
-
-  // The methods below are for mouse interaction
-
-  // This checks to see if we clicked on the pendulum ball
-  void clicked(int mx, int my) {
-    float d = dist(mx, my, position.x, position.y);
-    if (d < ballr) {
-      dragging = true;
-    }
-  }
-
-  // This tells us we are not longer clicking on the ball
-
 }
