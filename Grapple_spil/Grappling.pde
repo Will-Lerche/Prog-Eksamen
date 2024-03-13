@@ -28,7 +28,7 @@ class Pendulum {
 
   void go() {
     update();
-    drag();    //for user interaction
+    //drag();    //for user interaction
     display();
   }
 
@@ -72,20 +72,5 @@ class Pendulum {
   }
 
   // This tells us we are not longer clicking on the ball
-  void stopDragging() {
-    if (dragging) {
-      aVelocity = 0; // No velocity once you let go
-      dragging = false;
-    }
-  }
 
-  void drag() {
-    // If we are draging the ball, we calculate the angle between the 
-    // pendulum origin and mouse position
-    // we assign that angle to the pendulum
-    if (dragging) {
-      PVector diff = PVector.sub(origin, new PVector(p.Pxpos, p.Pypos));      // Difference between 2 points
-      angle = atan2(p.Pxpos, p.Pypos);                      // Angle relative to vertical axis
-    }
-  }
 }

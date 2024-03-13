@@ -48,9 +48,10 @@ void keyReleased() {
 }
 
 void mousePressed(){
-  g.stopDragging();
+  
  g.origin = new PVector(mouseX,mouseY);
- g.r = mag(g.origin.x-(p.Pxpos+25), g.origin.y-(p.Pypos+25));
+ g.r = mag(g.origin.x-(p.Pxpos), g.origin.y-(p.Pypos));
+ g.angle = atan2(p.Pxpos-mouseX, p.Pypos-mouseY);
  grappleActive = true;
  println("waaah");
 }
