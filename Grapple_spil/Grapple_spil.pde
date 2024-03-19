@@ -19,7 +19,7 @@ s1=new Spike(120,420,64,164);
 h=new Health(10,10);
 
 
-g = new Pendulum(new PVector(width/2,0),175);
+//g = new Pendulum(new PVector(width/2,0),175);
 size(500,500);
 }
 
@@ -52,12 +52,9 @@ void keyReleased() {
 }
 
 void mousePressed(){
-  
- g.origin = new PVector(mouseX,mouseY);
- g.r = mag(g.origin.x-(p.Pxpos), g.origin.y-(p.Pypos));
- g.angle = atan2(p.Pxpos-mouseX, p.Pypos-mouseY);
+  g = new Pendulum(new PVector(width/2,0),175);
+ 
  grappleActive = true;
- println("waaah");
 }
 
 void mouseReleased(){

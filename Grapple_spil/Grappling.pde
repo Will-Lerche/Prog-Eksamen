@@ -15,15 +15,16 @@ class Pendulum {
   // This constructor could be improved to allow a greater variety of pendulums
   Pendulum(PVector origin_, float r_) {
     // Fill all variables
-    origin = origin_.get();
+    
     position = new PVector();
-    r = r_;
-    angle = PI/4;
+    origin = new PVector(mouseX,mouseY);
+    r = mag(origin.x-(p.Pxpos), origin.y-(p.Pypos));
+    angle = atan2(p.Pxpos-mouseX, p.Pypos-mouseY); 
 
     aVelocity = 0.0;
     aAcceleration = 0.0;
     damping = 0.995;   // Arbitrary damping
-    ballr = 48.0;      // Arbitrary ball radius
+    
   }
 
   void go() {
