@@ -27,29 +27,32 @@ PVector vel = new PVector();
     vel.x = vel.x*0.8;
 
 
-  if(keyPressed && key=='d') acc.x = 1;
-  if(keyPressed && key=='a') acc.x = -1;
-  if(keyPressed && key=='w' && player.y >= 380) acc.y = -12;
-
+  if(knapH) acc.x = 1;
+  if(knapV) acc.x = -1;
+  if(knapJ && player.y >= 380) acc.y = -12;
+println(knapH);
 
   }
   void keyPress() { //bevæger spilleren
-    if (keyCode == RIGHT) {
+    if (keyCode == 'D') {
       knapH = true;
-    } else if (keyCode == LEFT) {
+      
+    } else if (keyCode == 'A') {
       knapV = true;
-    } else if (keyCode==UP && player.y >= 380) {
+      
+    } else if (keyCode=='W' && player.y >= 380) {
       knapJ = true;
       println("hop! "+frameCount);
     }
   }
-}
+
  void keyRelease() { //stopper spillerens bevægelse
-    if (keyCode == RIGHT) {
-      //knapH = false;
-    } else if (keyCode == LEFT) {
-      //knapV = false;
-    } else if (keyCode==UP) {
-      //knapJ = false;
+    if (keyCode == 'D') {
+      knapH = false;
+    } else if (keyCode == 'A') {
+      knapV = false;
+    } else if (keyCode=='W') {
+      knapJ = false;
     }
+  }
   }

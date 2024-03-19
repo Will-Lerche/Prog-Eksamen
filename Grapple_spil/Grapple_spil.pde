@@ -33,12 +33,12 @@ b2.createBoks();
 s1.createSpike();
 
 h.Hearts();
-
+println(h.liv);
 
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
 if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
 if(livsTimer < 0 && s1.overlap){ //her mister man livet og timeren reseter
-h.liv--;  
+h.liv--; 
 livsTimer = 60;}
 
 
@@ -48,11 +48,11 @@ a.Animater();
 
 void keyPressed() {
   p.keyPress();
-  a.testpress();
+  a.animationtryk();
 }
 
 void keyReleased() {
-  //p.keyRelease();
+  p.keyRelease();
 }
 
 void mousePressed(){
