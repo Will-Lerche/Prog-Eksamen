@@ -1,12 +1,11 @@
-class Player //Det her er spiller klassen
-boolean right,left;
-float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
-float b=50,h=50;
-float g = 0.8;
-boolean knapH, knapV, knapJ, onGround;
-PVector player = new PVector();
-PVector acc = new PVector();
-PVector vel = new PVector();
+class Player { //Det her er spiller klassen
+  float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
+  float b=50, h=50;
+  float g = 0.8;
+  boolean knapH, knapV, knapJ, onGround;
+  PVector player = new PVector();
+  PVector acc = new PVector();
+  PVector vel = new PVector();
 
 
   Player(PVector play) {
@@ -24,14 +23,25 @@ PVector vel = new PVector();
     } else {
       acc.y = acc.y + g;
     }
-    vel.x = vel.x*0.8;
+    vel.x = vel.x*0.9;
 
 
-  if(keyPressed && key=='d'){ acc.x = 1; a.reverseFactor=1;
+    if (keyPressed && key=='d') acc.x = 1;
+    if (keyPressed && key=='a') acc.x = -1;
+    if (keyPressed && key=='w' && player.y >= 380){ acc.y = -10; }
+
+//  println(player);
+/*
+    if (!onGround) { //hvis man ikke er on Ground så falder man ned
+      Pypos -= Pyvel;
+      Pyvel -= Pdacc;
+    }
+    if (onGround && knapJ) { //hvis man hopper imens han er på ground så hopper han
+      Pyvel = 2;
+    }
+    println(Pypos);
+  */  
   }
-  if(keyPressed && key=='a'){ acc.x = -1;a.reverseFactor=-1;
-  }
-  if(keyPressed && key=='w') acc.y = -1;
 
 
 
