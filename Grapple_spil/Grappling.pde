@@ -15,11 +15,12 @@ class Pendulum {
   // This constructor could be improved to allow a greater variety of pendulums
   Pendulum(PVector origin_, float r_) {
     // Fill all variables
-    origin = origin_.get();
+   
     position = new PVector();
-    r = r_;
-    angle = PI/4;
-
+   
+    origin = new PVector(mouseX,mouseY);
+    r = mag(origin.x-(p.player.x), origin.y-(p.player.y));
+    angle = atan2(p.player.x-mouseX, p.player.y-mouseY);
     aVelocity = 0.0;
     aAcceleration = 0.0;
     damping = 0.995;   // Arbitrary damping
@@ -52,12 +53,11 @@ class Pendulum {
     stroke(0);
     strokeWeight(2);
     // Draw the arm
-    line(origin.x, origin.y, p.Pxpos+25, p.Pypos+25);
+    line(origin.x, origin.y, p.player.x+25, p.player.y+25);
     ellipseMode(CENTER);
     fill(255);
     if (dragging) fill(0);
     // Draw the ball
-    p.Pxpos = position.x; 
-    p.Pypos = position.y;
+    p.player = position; 
   }
 }
