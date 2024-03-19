@@ -1,4 +1,4 @@
-class Player //Det her er spiller klassen
+class Player{ //Det her er spiller klassen
 boolean right,left;
 float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
 float b=50,h=50;
@@ -27,14 +27,12 @@ PVector vel = new PVector();
     vel.x = vel.x*0.8;
 
 
-  if(keyPressed && key=='d'){ acc.x = 1; a.reverseFactor=1;
+  if(keyPressed && key=='d') acc.x = 1;
+  if(keyPressed && key=='a') acc.x = -1;
+  if(keyPressed && key=='w' && player.y >= 380) acc.y = -12;
+
+
   }
-  if(keyPressed && key=='a'){ acc.x = -1;a.reverseFactor=-1;
-  }
-  if(keyPressed && key=='w') acc.y = -1;
-
-
-
   void keyPress() { //bevæger spilleren
     if (keyCode == RIGHT) {
       knapH = true;
@@ -45,13 +43,13 @@ PVector vel = new PVector();
       println("hop! "+frameCount);
     }
   }
-  void keyRelease() { //stopper spillerens bevægelse
+}
+ void keyRelease() { //stopper spillerens bevægelse
     if (keyCode == RIGHT) {
-      knapH = false;
+      //knapH = false;
     } else if (keyCode == LEFT) {
-      knapV = false;
+      //knapV = false;
     } else if (keyCode==UP) {
-      knapJ = false;
+      //knapJ = false;
     }
   }
-}

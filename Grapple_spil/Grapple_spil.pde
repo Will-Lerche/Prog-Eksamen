@@ -52,7 +52,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  p.keyRelease();
+  //p.keyRelease();
 }
 
 void mousePressed(){
