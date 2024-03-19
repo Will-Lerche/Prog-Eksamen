@@ -12,7 +12,7 @@ boolean grappleActive = false;
 
 
 void setup(){
-p=new Player(20,380,2,1.02); //laver et objekt "p" som er fra player klassen
+p=new Player(new PVector(30,380)); //laver et objekt "p" som er fra player klassen
 b1=new Platform(10,430,64,500);
 b2=new Platform(120,430,64,64);
 s1=new Spike(120,420,64,164);
