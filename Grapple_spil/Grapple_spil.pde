@@ -4,6 +4,7 @@ Spike s1;
 Platform b1;
 Platform b2;
 Health h;
+Animation a;
 
 int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
 
@@ -17,9 +18,12 @@ b1=new Platform(10,430,64,500);
 b2=new Platform(120,430,64,64);
 s1=new Spike(120,420,64,164);
 h=new Health(10,10);
+a=new Animation();
 
 
 g = new Pendulum(new PVector(width/2,0),175);
+
+a.AnimationSetup();
 size(500,500);
 }
 
@@ -39,12 +43,15 @@ if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer
 if(livsTimer < 0 && s1.overlap){ //her mister man livet og timeren reseter
 h.liv--;  
 livsTimer = 60;}
-println(h.liv);
-//println(s1.overlap);
+
+
+
+a.Animater();
 }
 
 void keyPressed() {
   p.keyPress();
+  a.testpress();
 }
 
 void keyReleased() {
