@@ -1,4 +1,5 @@
 class Player { //Det her er spiller klassen
+boolean right,left;
 float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
 float b=50,h=50;
 float g = 0.8;
@@ -23,8 +24,10 @@ if(player.y >= 380){ player.y=380;}else{ acc.y = acc.y + g;}
 vel.x = vel.x*0.98;
 
 
-  if(keyPressed && key=='d') acc.x = 1;
-  if(keyPressed && key=='a') acc.x = -1;
+  if(keyPressed && key=='d'){ acc.x = 1; a.reverseFactor=1;
+  }
+  if(keyPressed && key=='a'){ acc.x = -1;a.reverseFactor=-1;
+  }
   if(keyPressed && key=='w') acc.y = -1;
 
 

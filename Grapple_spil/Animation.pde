@@ -34,14 +34,14 @@ Animation(){}
   pushMatrix();
   scale(reverseFactor, 1);
   //billedet var alt for stort så det er sat til 100X100 pixels istedet
-  image(sprite, reverseFactor*p.Pxpos, p.Pypos,100,100);    
+  image(sprite, reverseFactor*p.player.x, p.player.y,100,100);    
   popMatrix();
  
  }
 void testpress() {
-  if (p.knapH)reverseFactor=1;
-  else reverseFactor=-1;
-  println(reverseFactor);
+  if (p.right)reverseFactor=1;
+  else if (p.left)reverseFactor=-1;
+  println(p.right,p.left);
 }
 
 }
