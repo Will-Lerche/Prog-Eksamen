@@ -9,7 +9,7 @@ class Pendulum {
 
   float ballr;         // Ball radius
   float damping;       // Arbitary damping amount
-
+  Boolean knapJ = false;
   boolean dragging = false;
 
   // This constructor could be improved to allow a greater variety of pendulums
@@ -39,10 +39,11 @@ class Pendulum {
     if (!dragging) {
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-      if(p.onGround){aVelocity = 0.0;}else{
+      if(p.player.y >= 380){aVelocity = 0.0;}else{
       aVelocity += aAcceleration;                 // Increment velocity
       aVelocity *= damping;                       // Arbitrary damping
       angle += aVelocity;                         // Increment angle
+      if(knapJ) r += -1;
     }}
   }
 
@@ -60,4 +61,15 @@ class Pendulum {
     // Draw the ball
     p.player = position; 
   }
+  
+  void keyPress(){
+  if (keyCode=='W'){
+  knapJ = true;
+  }}
+  void keyRelease(){
+  if (keyCode=='W'){
+  knapJ = false;
+  }
+  }
+  
 }

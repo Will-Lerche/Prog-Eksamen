@@ -47,8 +47,13 @@ a.Animater();
 }
 
 void keyPressed() {
+  if(!grappleActive){
   p.keyPress();
   a.animationtryk();
+  }else {
+  
+  }
+  
 }
 
 void keyReleased() {
