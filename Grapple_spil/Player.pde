@@ -8,7 +8,6 @@ PVector player = new PVector();
 PVector acc = new PVector();
 PVector vel = new PVector();
 
-
   Player(PVector play) {
     player = play;
   }
@@ -31,8 +30,8 @@ PVector vel = new PVector();
   if(knapV) acc.x = -1;
   if(knapJ && player.y >= 380) acc.y = -12;
 println(knapH);
-
   }
+  
   void keyPress() { //bevæger spilleren
     if (keyCode == 'D') {
       knapH = true;

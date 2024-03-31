@@ -1,6 +1,6 @@
 class Overlap{
   //Koordinat, højde og bredde til objektet
-  int x; int y; int h; int b;
+  int x; float y; int h; int b;
   //Henter koordinaterne, højden og bredden for objektet der bruger klassen
     boolean overlap = false;
 

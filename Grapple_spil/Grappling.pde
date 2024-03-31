@@ -43,8 +43,8 @@ class Pendulum {
       aVelocity += aAcceleration;                 // Increment velocity
       aVelocity *= damping;                       // Arbitrary damping
       angle += aVelocity;                         // Increment angle
-      if(knapJ && r>1) r += -1;
-    }}
+      
+    }if(knapJ && r>1) r += -1;}
   }
 
   void display() {
