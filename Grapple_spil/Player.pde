@@ -1,12 +1,13 @@
 class Player { //Det her er spiller klassen
   boolean right, left;
-  float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
+  //float Pxpos, Pypos, Pxvel, Pyvel, Pacc, Pdacc;
   float b=50, h=50;
   float g = 0.8;
   boolean knapH, knapV, knapJ, onGround;
   PVector player = new PVector();
   PVector acc = new PVector();
   PVector vel = new PVector();
+  PVector Camera = new PVector();
 
   Player(PVector play) {
     player = play;
@@ -14,10 +15,12 @@ class Player { //Det her er spiller klassen
 
   void drawPlayer() {
     strokeWeight(1);
-    rect(player.x, player.y, b, h);
+    
+//    rect(player.x, player.y, b, h);
 
     vel.add(acc);
     player.add(vel);
+    Camera.add(vel);
     acc.set(0, 0);
     if (player.y >= 380) {
       player.y=380;

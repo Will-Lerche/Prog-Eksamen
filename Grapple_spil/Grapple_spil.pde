@@ -29,16 +29,17 @@ void setup() {
 
 void draw() {
   background(100);
-  if (grappleActive) g.go();
-
+  h.Hearts();
+  translate((p.player.x*-1)+250,0.0);
   a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
+  if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
 
   b1.createBoks();
   b2.createBoks();
   s1.createSpike();
 
-  h.Hearts();
+  
   //println(h.liv);
 
   if (b1.overlap || b2.overlap) p.onGround = true; 
