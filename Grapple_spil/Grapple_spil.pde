@@ -7,8 +7,9 @@ Health h;
 Animation a;
 Coins c1;
 
-int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
+int livsTimer = 45; // cirka hvert sekund (computer afhængigt)
 int score = 0;
+boolean started,reset=false;
 
 boolean grappleActive = false;
 
@@ -29,6 +30,8 @@ void setup() {
 
 void draw() {
   background(100);
+  if (started){
+    reset=true;
   if (grappleActive) g.go();
 
   a.Animater(); //player animeres
@@ -46,11 +49,22 @@ void draw() {
   if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
   if (livsTimer < 0 && s1.overlap) { //her mister man livet og timeren reseter
     h.liv--; 
-    livsTimer = 60;
+    livsTimer = 45;
   }
+  if (h.liv<=0) started=false;
 
+ 
 
+println(livsTimer);
   c1.drawCoins();
+
+  }else { textSize(40); text("press to start",125,250);
+   if(mousePressed){
+   started=true;
+   h.liv=3;
+ }
+   
+  }
 }
 
 void keyPressed() {
