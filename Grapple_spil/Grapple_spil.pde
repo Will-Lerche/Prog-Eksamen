@@ -5,8 +5,10 @@ Platform b1;
 Platform b2;
 Health h;
 Animation a;
+Coins c1;
 
 int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
+int score = 0;
 
 boolean grappleActive = false;
 
@@ -19,6 +21,7 @@ b2=new Platform(120,430,64,64);
 s1=new Spike(120,420,64,164);
 h=new Health(10,10);
 a=new Animation();
+c1 = new Coins(200,350,30,30);
 
 a.AnimationSetup();
 size(500,500);
@@ -42,7 +45,7 @@ h.liv--;
 livsTimer = 60;}
 
 
-
+c1.drawCoins();
 a.Animater();
 }
 
