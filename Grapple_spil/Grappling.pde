@@ -15,10 +15,10 @@ class Pendulum {
   // This constructor could be improved to allow a greater variety of pendulums
   Pendulum(PVector origin_, float r_) {
     // Fill all variables
-   
+
     position = new PVector();
-   
-    origin = new PVector(mouseX,mouseY);
+
+    origin = new PVector(mouseX, mouseY);
     r = mag(origin.x-(p.player.x), origin.y-(p.player.y));
     angle = atan2(p.player.x-mouseX, p.player.y-mouseY);
     aVelocity = 0.0;
@@ -39,12 +39,15 @@ class Pendulum {
     if (!dragging) {
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-      if(p.player.y >= 380){aVelocity = 0.0;}else{
-      aVelocity += aAcceleration;                 // Increment velocity
-      aVelocity *= damping;                       // Arbitrary damping
-      angle += aVelocity;                         // Increment angle
-      
-    }if(knapJ && r>1) r += -1;}
+      if (p.player.y >= 380) {
+        aVelocity = 0.0;
+      } else {
+        aVelocity += aAcceleration;                 // Increment velocity
+        aVelocity *= damping;                       // Arbitrary damping
+        angle += aVelocity;                         // Increment angle
+      }
+      if (knapJ && r>1) r += -1;
+    }
   }
 
   void display() {
@@ -59,19 +62,17 @@ class Pendulum {
     fill(255);
     if (dragging) fill(0);
     // Draw the ball
-    p.player = position; 
-  }
-  
-  void keyPress(){
-  if (keyCode=='W'){
-  knapJ = true;
+    p.player = position;
   }
 
-}
-  void keyRelease(){
-  if (keyCode=='W'){
-  knapJ = false;
+  void keyPress() {
+    if (keyCode=='W') {
+      knapJ = true;
+    }
   }
+  void keyRelease() {
+    if (keyCode=='W') {
+      knapJ = false;
+    }
   }
-  
 }

@@ -45,12 +45,12 @@ class Animation {
     scale(reverseFactor, 1);
     //billedet var alt for stort så det er sat til 100X100 pixels istedet
     image(sprite, reverseFactor*p.player.x + reverseFactor*20, p.player.y+10, 100, 100);    
-    println("position animation ", p.player);
+
     popMatrix();
   }
-  
-  void animationtryk(){
-  if (p.knapH)reverseFactor=1;
-  if (p.knapV)reverseFactor=-1;
+
+  void animationtryk() {
+    if (p.knapH)reverseFactor=1;
+    if (p.knapV)reverseFactor=-1;
   }
 }

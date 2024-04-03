@@ -1,13 +1,8 @@
-class Fjende{
-float Fxpos, Fypos;
+class Fjende {
+  float Fxpos, Fypos;
 
-Fjende(float fx, float fy){
-fx=Fxpos;
-fy=Fypos;
-}
-
-
-
-
-
+  Fjende(float fx, float fy) {
+    fx=Fxpos;
+    fy=Fypos;
+  }
 }

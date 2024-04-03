@@ -14,71 +14,71 @@ boolean grappleActive = false;
 
 
 
-void setup(){
-p=new Player(new PVector(30,380)); //laver et objekt "p" som er fra player klassen
-b1=new Platform(10,430,64,500);
-b2=new Platform(120,430,64,64);
-s1=new Spike(120,420,64,164);
-h=new Health(15,10);
-a=new Animation();
-c1 = new Coins(200,350,30,30);
+void setup() {
+  p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
+  b1=new Platform(10, 430, 64, 500);
+  b2=new Platform(120, 430, 64, 64);
+  s1=new Spike(120, 420, 64, 164);
+  h=new Health(15, 10);
+  a=new Animation();
+  c1 = new Coins(200, 350, 30, 30);
 
-a.AnimationSetup();
-size(500,500);
+  a.AnimationSetup();
+  size(500, 500);
 }
 
-void draw(){
+void draw() {
   background(100);
-  if(grappleActive) g.go();
+  if (grappleActive) g.go();
 
   a.Animater(); //player animeres
-p.drawPlayer();  // player tegnes
+  p.drawPlayer();  // player tegnes
 
-b1.createBoks();
-b2.createBoks();
-s1.createSpike();
+  b1.createBoks();
+  b2.createBoks();
+  s1.createSpike();
 
-h.Hearts();
-//println(h.liv);
+  h.Hearts();
+  //println(h.liv);
 
-if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
-if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
-if(livsTimer < 0 && s1.overlap){ //her mister man livet og timeren reseter
-h.liv--; 
-livsTimer = 60;}
+  if (b1.overlap || b2.overlap) p.onGround = true; 
+  else p.onGround = false;// hvis den overlapper så er onGround true ellers false
+  if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
+  if (livsTimer < 0 && s1.overlap) { //her mister man livet og timeren reseter
+    h.liv--; 
+    livsTimer = 60;
+  }
 
 
-c1.drawCoins();
+  c1.drawCoins();
 }
 
 void keyPressed() {
-  if(!grappleActive){
-  p.keyPress();
-  a.animationtryk();
-  }else { 
-  g.keyPress();
-  p.keyRelease();
-  
+  if (!grappleActive) {
+    p.keyPress();
+    a.animationtryk();
+  } else { 
+    g.keyPress();
+    p.keyRelease();
   }
-  
 }
 
 void keyReleased() {
-  if(!grappleActive){
-  p.keyRelease();
-  }else { g.keyRelease();
-  
+  if (!grappleActive) {
+    p.keyRelease();
+  } else { 
+    g.keyRelease();
   }
 }
 
-void mousePressed(){
-  
-  g = new Pendulum(new PVector(width/2,0),175);
- 
- grappleActive = true;
- //println("waaah");
+void mousePressed() {
+
+  g = new Pendulum(new PVector(width/2, 0), 175);
+
+  grappleActive = true;
+  //println("waaah");
 }
 
-void mouseReleased(){
+void mouseReleased() {
   grappleActive = false;
 }
