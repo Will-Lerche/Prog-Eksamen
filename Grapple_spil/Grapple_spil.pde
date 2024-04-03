@@ -9,6 +9,7 @@ Coins c1;
 
 int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
 int score = 0;
+boolean started,reset=false;
 
 boolean grappleActive = false;
 
@@ -31,6 +32,10 @@ void draw() {
   background(100);
   h.Hearts();
   translate((p.player.x*-1)+250,0.0);
+  if (started){
+    reset=true;
+  if (grappleActive) g.go();
+
   a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
@@ -49,9 +54,20 @@ void draw() {
     h.liv--; 
     livsTimer = 60;
   }
+  if (h.liv<=0) started=false;
 
+ 
 
+println(livsTimer);
   c1.drawCoins();
+
+  }else { textSize(40); text("press to start",125,250);
+   if(mousePressed){
+   started=true;
+   h.liv=3;
+ }
+   
+  }
 }
 
 void keyPressed() {
