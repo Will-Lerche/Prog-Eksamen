@@ -30,13 +30,16 @@ size(500,500);
 void draw(){
   background(100);
   if(grappleActive) g.go();
-p.drawPlayer();
+
+  a.Animater(); //player animeres
+p.drawPlayer();  // player tegnes
+
 b1.createBoks();
 b2.createBoks();
 s1.createSpike();
 
 h.Hearts();
-println(h.liv);
+//println(h.liv);
 
 if(b1.overlap || b2.overlap) p.onGround = true; else p.onGround = false;// hvis den overlapper så er onGround true ellers false
 if (s1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
@@ -46,7 +49,6 @@ livsTimer = 60;}
 
 
 c1.drawCoins();
-a.Animater();
 }
 
 void keyPressed() {
@@ -74,7 +76,7 @@ void mousePressed(){
   g = new Pendulum(new PVector(width/2,0),175);
  
  grappleActive = true;
- println("waaah");
+ //println("waaah");
 }
 
 void mouseReleased(){

@@ -15,6 +15,7 @@ PVector vel = new PVector();
   void drawPlayer() {
     strokeWeight(1);
     rect(player.x, player.y, b, h);
+    println("position box",player);
     vel.add(acc);
     player.add(vel);
     acc.set(0, 0);
@@ -29,7 +30,7 @@ PVector vel = new PVector();
   if(knapH) acc.x = 1;
   if(knapV) acc.x = -1;
   if(knapJ && player.y >= 380) acc.y = -12;
-println(knapH);
+//println(knapH);
   }
   
   void keyPress() { //bevæger spilleren
@@ -41,7 +42,7 @@ println(knapH);
       
     } else if (keyCode=='W' && player.y >= 380) {
       knapJ = true;
-      println("hop! "+frameCount);
+      //println("hop! "+frameCount);
     }
   }
 

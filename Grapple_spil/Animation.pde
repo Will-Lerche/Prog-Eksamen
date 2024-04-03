@@ -35,7 +35,7 @@ class Animation {
         column=0;
       }
       //Tallet 25 er korigering fordi tegningerne på mit spritsheet er for langt til venstre!
-      Ax = (column)*wFrame-25;  
+      Ax = (column)*wFrame-35;  
       Ay = (row)*hFrame;
     }
 
@@ -44,7 +44,8 @@ class Animation {
     pushMatrix();
     scale(reverseFactor, 1);
     //billedet var alt for stort så det er sat til 100X100 pixels istedet
-    image(sprite, reverseFactor*p.player.x, p.player.y, 100, 100);    
+    image(sprite, reverseFactor*p.player.x + reverseFactor*20, p.player.y+10, 100, 100);    
+    println("position animation ", p.player);
     popMatrix();
   }
   
