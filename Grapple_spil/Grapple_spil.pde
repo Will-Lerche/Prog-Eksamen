@@ -16,7 +16,16 @@ boolean grappleActive = false;
 
 
 void setup() {
-  p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
+  size(500, 500);
+  resetAll();
+}
+
+void resetAll(){
+  livsTimer = 45; // cirka hvert sekund (computer afhængigt)
+  score = 0;
+  started = false;reset=false;
+  grappleActive = false;
+ p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
   b1=new Platform(10, 430, 64, 500);
   b2=new Platform(120, 430, 64, 64);
   s1=new Spike(120, 420, 64, 164);
@@ -25,9 +34,8 @@ void setup() {
   c1 = new Coins(200, 350, 30, 30);
 
   a.AnimationSetup();
-  size(500, 500);
-}
 
+}
 void draw() {
   background(100);
   h.Hearts();
@@ -54,14 +62,14 @@ void draw() {
     h.liv--; 
     livsTimer = 60;
   }
-  if (h.liv<=0) started=false;
+  if (h.liv<=0) resetAll();//started=false;
 
  
 
-println(livsTimer);
+
   c1.drawCoins();
 
-  }else { textSize(40); text("press to start",125,250);
+  }else { textSize(40); text("press to start",-100,250);
    if(mousePressed){
    started=true;
    h.liv=3;
