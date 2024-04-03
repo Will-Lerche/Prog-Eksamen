@@ -50,7 +50,9 @@ void keyPressed() {
   if(!grappleActive){
   p.keyPress();
   a.animationtryk();
-  }else { g.keyPress();
+  }else { 
+  g.keyPress();
+  p.keyRelease();
   
   }
   

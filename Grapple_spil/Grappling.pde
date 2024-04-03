@@ -65,7 +65,9 @@ class Pendulum {
   void keyPress(){
   if (keyCode=='W'){
   knapJ = true;
-  }}
+  }
+
+}
   void keyRelease(){
   if (keyCode=='W'){
   knapJ = false;
