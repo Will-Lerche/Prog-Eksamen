@@ -1,10 +1,10 @@
 class Platform extends Overlap {
 
-  Platform(int xin, int yin, int hin, int bin) {
+  Platform(int xin, int yin, int bin, int hin) {
     x = xin; 
     y = yin; 
-    h = hin; 
-    b = bin;
+    b = bin; 
+    h = hin;
   }
   void createBoks() {
     strokeWeight(1);

@@ -26,9 +26,9 @@ void resetAll(){
   started = false;reset=false;
   grappleActive = false;
  p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
-  b1=new Platform(10, 430, 64, 500);
-  b2=new Platform(120, 430, 64, 64);
-  s1=new Spike(120, 420, 64, 164);
+  b1=new Platform(10, 430, 100, 64);
+  b2=new Platform(200, 430, 64, 64);
+  s1=new Spike(300, 420, 64, 64);
   h=new Health(15, 10);
   a=new Animation();
   c1 = new Coins(200, 350, 30, 30);
@@ -39,7 +39,10 @@ void resetAll(){
 void draw() {
   background(100);
   h.Hearts();
+  text(score,400,40);
+   println(s1.x,p.player.x);
   translate((p.player.x*-1)+250,0.0);
+  
   if (started){
     reset=true;
   if (grappleActive) g.go();
