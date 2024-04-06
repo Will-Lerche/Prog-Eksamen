@@ -7,6 +7,8 @@ class Player { //Det her er spiller klassen
   PVector acc = new PVector();
   PVector vel = new PVector();
   PVector Camera = new PVector();
+  
+
 
   Player(PVector play) {
     player = play;
@@ -35,6 +37,8 @@ class Player { //Det her er spiller klassen
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
     if (knapJ && player.y >= 380) acc.y = -12;
+    
+
    
   }
 
@@ -58,4 +62,8 @@ class Player { //Det her er spiller klassen
       knapJ = false;
     }
   }
+
+
+
+
 }

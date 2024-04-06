@@ -40,7 +40,7 @@ class Animation {
     }
 
     PImage sprite = spritesheet.get(Ax, Ay, wFrame, hFrame);
-
+    
     pushMatrix();
     scale(reverseFactor, 1);
     //billedet var alt for stort så det er sat til 100X100 pixels istedet

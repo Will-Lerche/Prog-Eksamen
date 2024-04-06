@@ -51,15 +51,11 @@ void draw() {
   text(score,450,40);
   image(coinIcon, 425, 27);
    println(s1.x,p.player.x);
-<<<<<<< Updated upstream
-   pushMatrix();
-=======
-<<<<<<< HEAD
 
-=======
+
+
    pushMatrix();
->>>>>>> 9601ab9092818bb2ad2704851e9c5529a701cda1
->>>>>>> Stashed changes
+
    translate((p.player.x*-1)+250,0.0);
    popMatrix();
   
