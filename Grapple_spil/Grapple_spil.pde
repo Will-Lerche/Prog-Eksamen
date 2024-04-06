@@ -13,11 +13,12 @@ boolean started,reset=false;
 
 boolean grappleActive = false;
 
-
+PImage coinIcon;
 
 void setup() {
   size(500, 500);
   resetAll();
+  coinIcon = loadImage("pixil-frame-0 (1).png");
 }
 
 void resetAll(){
@@ -39,7 +40,8 @@ void resetAll(){
 void draw() {
   background(100);
   h.Hearts();
-  text(score,400,40);
+  text(score,450,40);
+  image(coinIcon, 425, 27);
    println(s1.x,p.player.x);
    translate((p.player.x*-1)+250,0.0);
   

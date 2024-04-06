@@ -1,12 +1,14 @@
 class Coins extends Overlap { 
   float yVariation = 0;
   boolean coin= true;
+ 
 
   Coins(int xin, int yin, int hin, int bin) {
     x=xin;
     y=yin;
     h=hin;
     b=bin;
+    
   }
 
   void drawCoins() { 
