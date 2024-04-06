@@ -10,10 +10,11 @@ class Pendulum {
   float ballr;         // Ball radius
   float damping;       // Arbitary damping amount
   Boolean knapJ = false;
+  Boolean knapN = false;
   boolean dragging = false;
 
   // This constructor could be improved to allow a greater variety of pendulums
-  Pendulum(PVector origin_, float r_) {
+  Pendulum() {
     // Fill all variables
 
     position = new PVector();
@@ -36,7 +37,6 @@ class Pendulum {
   // Function to update position
   void update() {
     // As long as we aren't dragging the pendulum, let it swing!
-    if (!dragging) {
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
       if (p.player.y >= 380) {
@@ -45,8 +45,9 @@ class Pendulum {
         aVelocity += aAcceleration;                 // Increment velocity
         aVelocity *= damping;                       // Arbitrary damping
         angle += aVelocity;                         // Increment angle
-      }
+     
       if (knapJ && r>1) r += -1;
+      if (knapN && p.player.y <= 380) r++;
     }
   }
 
@@ -68,11 +69,16 @@ class Pendulum {
   void keyPress() {
     if (keyCode=='W') {
       knapJ = true;
-    }
+     } else if (keyCode=='S') {
+      knapN = true;
+     }
   }
   void keyRelease() {
     if (keyCode=='W') {
       knapJ = false;
+    }
+    if (keyCode=='S') {
+      knapN = false;
     }
   }
 }

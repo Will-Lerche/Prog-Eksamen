@@ -41,15 +41,14 @@ void draw() {
   h.Hearts();
   text(score,400,40);
    println(s1.x,p.player.x);
-  translate((p.player.x*-1)+250,0.0);
+   translate((p.player.x*-1)+250,0.0);
   
   if (started){
     reset=true;
-  if (grappleActive) g.go();
-
+  if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
   a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
-  if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
+ 
 
   b1.createBoks();
   b2.createBoks();
@@ -101,7 +100,7 @@ void keyReleased() {
 
 void mousePressed() {
 
-  g = new Pendulum(new PVector(width/2, 0), 175);
+  g = new Pendulum();
 
   grappleActive = true;
   //println("waaah");
