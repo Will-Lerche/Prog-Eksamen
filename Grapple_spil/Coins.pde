@@ -13,7 +13,8 @@ class Coins extends Overlap {
 
   void drawCoins() { 
     if (coin) {
-      ellipse(x, y+sin(yVariation)*10, b, h);
+      //ellipse(x, y+sin(yVariation)*10, b, h);
+      image(coinIcon, x, y+sin(yVariation)*10);
       noStroke();
       fill(0,0,0,22);
       ellipse(x, 439, b+cos(yVariation+ PI/2)*3, h/2);
