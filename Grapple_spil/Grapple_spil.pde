@@ -43,7 +43,9 @@ void draw() {
   text(score,450,40);
   image(coinIcon, 425, 27);
    println(s1.x,p.player.x);
+   pushMatrix();
    translate((p.player.x*-1)+250,0.0);
+   popMatrix();
   
   if (started){
     reset=true;
