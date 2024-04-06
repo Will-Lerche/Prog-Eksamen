@@ -36,7 +36,6 @@ class Pendulum {
 
   // Function to update position
   void update() {
-    // As long as we aren't dragging the pendulum, let it swing!
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
       if (p.player.y >= 380) {

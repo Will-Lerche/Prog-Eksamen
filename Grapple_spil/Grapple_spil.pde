@@ -31,7 +31,7 @@ void resetAll(){
   s1=new Spike(300, 420, 64, 64);
   h=new Health(15, 10);
   a=new Animation();
-  c1 = new Coins(200, 350, 30, 30);
+  c1 = new Coins(230, 380, 30, 30);
 
   a.AnimationSetup();
 
