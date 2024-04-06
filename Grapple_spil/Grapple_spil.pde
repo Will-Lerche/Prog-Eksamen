@@ -30,7 +30,7 @@ void resetAll(){
   score = 0;
   started = false;reset=false;
   grappleActive = false;
- p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
+  p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
   b1=new Platform(10, 430, 200, 64);
   b2=new Platform(500, 430, 64, 64);
   s1=new Spike(260, 420, 64, 64);
@@ -39,27 +39,17 @@ void resetAll(){
   f1 = new Fjende(20,380);
   b3 = new Platform(600,350,75,64);
   b4 = new Platform(800,400,50,64);
-   a=new Animation();
-
+  a=new Animation();
   a.AnimationSetup();
 
 }
 void draw() {
   background(100);
   h.Hearts();
-
   text(score,450,40);
   image(coinIcon, 425, 27);
-   println(s1.x,p.player.x);
-<<<<<<< Updated upstream
    pushMatrix();
-=======
-<<<<<<< HEAD
 
-=======
-   pushMatrix();
->>>>>>> 9601ab9092818bb2ad2704851e9c5529a701cda1
->>>>>>> Stashed changes
    translate((p.player.x*-1)+250,0.0);
    popMatrix();
   
@@ -87,12 +77,11 @@ void draw() {
     h.liv--; 
     livsTimer = 60;
   }
-  println(b3.overlap);
+  
    
   if (h.liv<=0) resetAll();//started=false;
 
- if(b3.overlap && p.player.x<f1.x) f1.x--; //hvis en spiller er på blok x og player har højere x værdi 
- if(b3.overlap && p.player.x>f1.x) f1.x++;
+f1.fjendeCollison(b1.overlap,f1.x);
 
   c1.drawCoins();
 

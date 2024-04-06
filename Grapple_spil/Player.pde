@@ -24,11 +24,12 @@ class Player { //Det her er spiller klassen
     Camera.add(vel);
     acc.set(0, 0);
    
-    if (player.y >= 380 ) {
+    if (player.y >= 380) {
       player.y=380;
     } else {
       acc.y = acc.y + g;
     }
+    
     
    
     vel.x = vel.x*0.8;
