@@ -95,8 +95,13 @@ f1.fjendeCollison(b1.overlap,f1.x);
 }
 
 void keyPressed() {
+  if (!grappleActive) {
     p.keyPress();
     a.animationtryk();
+  } else { 
+    g.keyPress();
+    p.keyRelease();
+  }
 }
 
 void keyReleased() {
