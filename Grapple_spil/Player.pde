@@ -24,23 +24,24 @@ class Player { //Det her er spiller klassen
     Camera.add(vel);
     acc.set(0, 0);
    
-    if (player.y >= 380) {
-      player.y=380;
-    } else {
+    if (onGround && b1.overlap) {
+      player.y=b1.y-p.b+1;
+   
+    } else  {
+      
       acc.y = acc.y + g;
     }
-    
-    
+  
    
     vel.x = vel.x*0.8;
 
 
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
-    if (knapJ && player.y >= 380) acc.y = -12;
-    
-
+    if (knapJ && onGround ) acc.y = -12; 
    
+
+
   }
 
   void keyPress() { //bevæger spilleren

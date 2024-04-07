@@ -52,7 +52,6 @@ void draw() {
 
    translate((p.player.x*-1)+250,0.0);
    popMatrix();
-  
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
@@ -79,9 +78,9 @@ void draw() {
   }
   
    
-  if (h.liv<=0) resetAll();//started=false;
+  if (h.liv<=0 || p.player.y>600) resetAll();//started=false;
 
-f1.fjendeCollison(b1.overlap,f1.x);
+  f1.fjendeCollison(b1.overlap,f1.x);
 
   c1.drawCoins();
 
