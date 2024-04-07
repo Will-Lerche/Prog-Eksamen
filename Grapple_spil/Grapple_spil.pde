@@ -95,13 +95,8 @@ f1.fjendeCollison(b1.overlap,f1.x);
 }
 
 void keyPressed() {
-  if (!grappleActive) {
     p.keyPress();
     a.animationtryk();
-  } else { 
-    g.keyPress();
-    p.keyRelease();
-  }
 }
 
 void keyReleased() {
@@ -117,9 +112,13 @@ void mousePressed() {
   g = new Pendulum();
 
   grappleActive = true;
+  p.keyRelease();
   //println("waaah");
 }
 
 void mouseReleased() {
   grappleActive = false;
+   p.knapJ = false;
+   p.knapH = false;
+   p.knapV = false;
 }
