@@ -36,18 +36,20 @@ class Pendulum {
 
   // Function to update position
   void update() {
-      float gravity = 0.4;                              // Arbitrary constant
-      aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-      if (p.player.y >= 380) {
-        aVelocity = 0.0;
-      } else {
+        // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
+    //  if (p.player.y >= 380) {
+    //    aVelocity = 0.0;
+    //  } else {
+        float gravity = 0.4;                              // Arbitrary constant
+      aAcceleration = (-1 * gravity / r) * sin(angle);
         aVelocity += aAcceleration;                 // Increment velocity
         aVelocity *= damping;                       // Arbitrary damping
         angle += aVelocity;                         // Increment angle
      
-      if (knapJ && r>1) r += -1;
+     
       if (knapN && p.player.y <= 380) r++;
-    }
+   // }
+     if (knapJ && r>1) r += -1;
   }
 
   void display() {

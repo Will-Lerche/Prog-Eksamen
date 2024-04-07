@@ -52,7 +52,7 @@ void draw() {
 
    translate((p.player.x*-1)+250,0.0);
    popMatrix();
-  
+  rect(100,380,10,10);
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
