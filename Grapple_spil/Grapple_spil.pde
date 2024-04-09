@@ -43,7 +43,7 @@ void resetAll(){
   s3=new Spike(870, 470, 60, 65);
   s4=new Spike(935, 470, 60, 65);
   h=new Health(15, 10);
-  c1 = new Coins(200, 350, 30, 30);
+  c1 = new Coins(200, 380, 30, 30);
   f1 = new Fjende(20,380);
   
  
