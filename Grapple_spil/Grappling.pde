@@ -13,6 +13,7 @@ class Pendulum {
   Boolean knapN = false;
   boolean dragging = false;
 
+
   // This constructor could be improved to allow a greater variety of pendulums
   Pendulum() {
     // Fill all variables
@@ -38,7 +39,7 @@ class Pendulum {
   void update() {
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-      if (p.onGround) {
+      if (dragging) {
         aVelocity = 0.0;
       } else {
         aVelocity += aAcceleration;                 // Increment velocity
@@ -70,6 +71,12 @@ class Pendulum {
       knapJ = true;
      } else if (keyCode=='S') {
       knapN = true;
+     }
+     
+     if (keyCode=='A') {
+      angle -= 0.05;
+     } else if (keyCode=='D') {
+      angle += 0.05;
      }
   }
   void keyRelease() {
