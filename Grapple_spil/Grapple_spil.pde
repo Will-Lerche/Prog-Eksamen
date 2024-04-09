@@ -46,19 +46,17 @@ void resetAll(){
   f1 = new Fjende(20,360,64,64);
   fjende1=false;
  
-  a=new Animation();
-  a.AnimationSetup();
-
+  a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
 void draw() {
   background(100);
   h.Hearts();
   text(score,450,40);
   image(coinIcon, 425, 27);
-  pushMatrix();
+  //pushMatrix();
 
    translate((p.player.x*-1)+250,0.0);
-   popMatrix();
+   //popMatrix();
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret

@@ -5,23 +5,27 @@ class Animation {
   int row, column;       //row og column bruges til at vælge hvilken "nummer" frame
   int Ax=0, Ay=0;           //x og y anvendes til at finde øverste venstre hjørne af denne frame 
   int reverseFactor = 1; //reverseFactor bruges til at spejlvende en frame
-
-  Animation() {
+  int w,h, antal;
+  float x,y;
+  
+  Animation(String spriteSheet, int win, int hin, int antalin, float xin, float yin) {
+    imageMode(CENTER);
+    spritesheet = loadImage(spriteSheet);
+    wFrame = spritesheet.width/win;
+    hFrame = spritesheet.height/hin;
+    w = win;
+    h = hin;
+    x = xin;
+    y = yin;
+    antal = antalin;
+   
   } 
 
-
-  void AnimationSetup() {
-    imageMode(CENTER);
-    spritesheet = loadImage("sprite.png");
-    wFrame = spritesheet.width/4;
-    hFrame = spritesheet.height/2;
-  }
-
   void Animater() {
-    if (frameCount%5==0) { //animationen er lidt hurtig, så jeg ændrer kun frame hver 5. billede
+    if (frameCount%antal==0) { //animationen er lidt hurtig, så jeg ændrer kun frame hver 5. billede
 
       //udvælgelse af næste frame
-      if (column<3) { 
+      if (column<w-1) { 
         column++;
       } else { 
         column=0; 
@@ -38,7 +42,6 @@ class Animation {
       Ax = (column)*wFrame-35;  
       Ay = (row)*hFrame;
     }
-
     PImage sprite = spritesheet.get(Ax, Ay, wFrame, hFrame);
     
     pushMatrix();

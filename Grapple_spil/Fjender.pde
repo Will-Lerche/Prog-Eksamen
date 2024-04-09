@@ -1,16 +1,19 @@
 class Fjende extends Overlap{
   float Fxpos, Fypos;
+  Animation ea;
 
    Fjende(int xin, int yin, int hin, int bin) {
     x = xin; 
     y = yin; 
     h=hin;
     b=bin;
+    ea = new Animation("spritesheetvolt_run.png",5,2,9,x,y);
   }
   
   void createFjende(){
   rect(x, y, h, b); // fjende
    overlap();
+   ea.Animater();
   }
   
   
