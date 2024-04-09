@@ -4,6 +4,7 @@ Spike s1;
 Spike s2;
 Spike s3;
 Spike s4;
+Spike s5;
 Platform b1;
 Platform b2;
 Platform b3;
@@ -11,6 +12,10 @@ Platform b4;
 Health h;
 Animation a;
 Coins c1;
+Coins c2;
+Coins c3;
+Coins c4;
+Coins c5;
 Fjende f1;
 
 
@@ -34,15 +39,20 @@ void resetAll(){
   grappleActive = false;
   p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
   b1=new Platform(-300, 450, 500, 64);
-  b2=new Platform(300, 400, 250, 64);
-  b3=new Platform(1200, 450, 150, 64);
+  b2=new Platform(300, 400, 460, 64);
+  b3=new Platform(990, 400, 150, 64);
   b4=new Platform(1600,450,50,64);
-  s1=new Spike(340, 340, 60, 65);
-  s2=new Spike(805, 470, 60, 65);
-  s3=new Spike(870, 470, 60, 65);
-  s4=new Spike(935, 470, 60, 65);
+  s1=new Spike(250, 470, 60, 65);
+  s2=new Spike(530, 370, 60,65);
+  s3=new Spike(805, 470, 60, 65);
+  s4=new Spike(870, 470, 60, 65);
+  s5=new Spike(935, 470, 60, 65);
   h=new Health(15, 10);
-  c1 = new Coins(200, 380, 30, 30);
+  c1 = new Coins(-300, 400, 30, 30);
+  c2 = new Coins(190, 400, 30, 30);
+  c3 = new Coins(350, 350, 30, 30);
+  c4 = new Coins(530, 320, 30, 30);
+  c5 = new Coins(870, 380, 30, 30);
   f1 = new Fjende(20,360,64,64);
   fjende1=false;
  
@@ -55,10 +65,10 @@ void draw() {
   h.Hearts();
   text(score,450,40);
   image(coinIcon, 425, 27);
-  pushMatrix();
+  //pushMatrix();
 
    translate((p.player.x*-1)+250,0.0);
-   popMatrix();
+   //popMatrix();
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
@@ -74,7 +84,12 @@ void draw() {
   s2.createSpike();
   s3.createSpike();
   s4.createSpike();
+  s5.createSpike();
   c1.drawCoins();
+  c2.drawCoins();
+  c3.drawCoins();
+  c4.drawCoins();
+  c5.drawCoins();
   f1.fjendeCollison(b1.overlap,f1.x);
   p.melee(f1.x);
   
