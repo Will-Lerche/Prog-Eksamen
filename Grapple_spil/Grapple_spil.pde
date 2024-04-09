@@ -12,6 +12,8 @@ Health h;
 Animation a;
 Coins c1;
 Coins c2;
+Coins c3;
+Coins c4;
 Fjende f1;
 
 
@@ -35,7 +37,7 @@ void resetAll(){
   started = false;reset=false;
   grappleActive = false;
   p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
-  b1=new Platform(-300, 450, 1000, 64);
+  b1=new Platform(-400, 450, 1100, 64);
   b2=new Platform(970, 450, 250, 64);
   b3=new Platform(1200, 450, 150, 64);
   b4=new Platform(1600,450,50,64);
@@ -46,6 +48,8 @@ void resetAll(){
   h=new Health(15, 10);
   c1 = new Coins(620, 420, 30, 30);
   c2 = new Coins(835, 390, 30, 30);
+  c3 = new Coins(-400, 420, 30, 30);
+  c4 = new Coins(1000, 420, 30,30);
   f1 = new Fjende(40,380);
   
  
@@ -61,7 +65,7 @@ void draw() {
   pushMatrix();
 
    translate((p.player.x*-1)+250,0.0);
-   popMatrix();
+  popMatrix();
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
@@ -98,6 +102,8 @@ void draw() {
 
   c1.drawCoins();
   c2.drawCoins();
+  c3.drawCoins();
+  c4.drawCoins();
 
   }else { textSize(40); text("press to start",-100,250);
    if(mousePressed){
