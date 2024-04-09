@@ -15,35 +15,33 @@ class Player { //Det her er spiller klassen
 
   void drawPlayer() {
     strokeWeight(1);
-    
-    
+
+
     vel.add(acc);
     player.add(vel);
     Camera.add(vel);
     acc.set(0, 0);
-   
-    if(onGround && knapJ ){ 
-      
-      acc.y = -12; 
-    
-    }else if(onGround && b1.overlap) {
+
+    if (onGround && knapJ ) {
+
+      acc.y = -12;
+    } else if (onGround && b1.overlap) {
       player.y=b1.y-p.b+1;
-   
-    } else  {
-      
-      acc.y = acc.y + g;
+    } else {
+      if (!grappleActive) {
+        acc.y = acc.y + g;
+      } else {
+        acc.y = 0;
+      }
     }
-  
-   
+
+
     vel.x = vel.x*0.8;
 
 
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
-   // if (knapJ && onGround ) acc.y = -12; 
-   
-
-
+    // if (knapJ && onGround ) acc.y = -12;
   }
 
   void keyPress() { //bevæger spilleren
@@ -66,8 +64,4 @@ class Player { //Det her er spiller klassen
       knapJ = false;
     }
   }
-
-
-
-
 }

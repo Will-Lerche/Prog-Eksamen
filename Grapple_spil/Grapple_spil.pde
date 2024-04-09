@@ -121,4 +121,5 @@ void mousePressed() {
 
 void mouseReleased() {
   grappleActive = false;
+  p.acc.x *= g.aAcceleration;
 }
