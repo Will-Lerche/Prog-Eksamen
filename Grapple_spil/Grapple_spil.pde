@@ -11,6 +11,7 @@ Platform b4;
 Health h;
 Animation a;
 Coins c1;
+Coins c2;
 Fjende f1;
 
 
@@ -43,8 +44,9 @@ void resetAll(){
   s3=new Spike(870, 470, 60, 65);
   s4=new Spike(935, 470, 60, 65);
   h=new Health(15, 10);
-  c1 = new Coins(200, 350, 30, 30);
-  f1 = new Fjende(20,380);
+  c1 = new Coins(620, 420, 30, 30);
+  c2 = new Coins(835, 390, 30, 30);
+  f1 = new Fjende(40,380);
   
  
   a=new Animation();
@@ -75,6 +77,7 @@ void draw() {
   s2.createSpike();
   s3.createSpike();
   s4.createSpike();
+ 
   f1.createFjende();
 
   
@@ -94,6 +97,7 @@ void draw() {
   f1.fjendeCollison(b1.overlap,f1.x);
 
   c1.drawCoins();
+  c2.drawCoins();
 
   }else { textSize(40); text("press to start",-100,250);
    if(mousePressed){
