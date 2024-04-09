@@ -47,7 +47,7 @@ class Animation {
     pushMatrix();
     scale(reverseFactor, 1);
     //billedet var alt for stort så det er sat til 100X100 pixels istedet
-    image(sprite, reverseFactor*p.player.x + reverseFactor*20, p.player.y+10, 100, 100);    
+    image(sprite, reverseFactor*x + reverseFactor*20, y+10, 100, 100);    
 
     popMatrix();
   }

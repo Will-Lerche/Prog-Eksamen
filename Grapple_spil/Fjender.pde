@@ -11,8 +11,11 @@ class Fjende extends Overlap{
   }
   
   void createFjende(){
+    
   rect(x, y, h, b); // fjende
    overlap();
+   ea.x = x;
+   ea.y = y;
    ea.Animater();
   }
   

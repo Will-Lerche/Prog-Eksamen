@@ -16,7 +16,9 @@ class Player { //Det her er spiller klassen
   void drawPlayer() {
     strokeWeight(1);
 
-
+    a.x = player.x;
+    a.y = player.y;
+    
     vel.add(acc);
     player.add(vel);
     Camera.add(vel);
