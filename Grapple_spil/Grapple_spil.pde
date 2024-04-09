@@ -53,7 +53,7 @@ void resetAll(){
   c3 = new Coins(350, 350, 30, 30);
   c4 = new Coins(530, 320, 30, 30);
   c5 = new Coins(870, 380, 30, 30);
-  f1 = new Fjende(20,360,64,64);
+  f1 = new Fjende(-100,360,64,64);
   fjende1=false;
  
   a=new Animation();
