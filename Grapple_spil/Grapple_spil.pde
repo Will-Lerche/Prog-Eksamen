@@ -1,6 +1,9 @@
 Player p;
 Pendulum g;
 Spike s1;
+Spike s2;
+Spike s3;
+Spike s4;
 Platform b1;
 Platform b2;
 Platform b3;
@@ -32,10 +35,13 @@ void resetAll(){
   grappleActive = false;
   p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
   b1=new Platform(-300, 450, 1000, 64);
-  b2=new Platform(1100, 450, 250, 64);
-  b3=new Platform(1300, 450, 150, 64);
+  b2=new Platform(970, 450, 250, 64);
+  b3=new Platform(1200, 450, 150, 64);
   b4=new Platform(1600,450,50,64);
-  s1=new Spike(260, 420, 64, 64);
+  s1=new Spike(740, 470, 60, 65);
+  s2=new Spike(805, 470, 60, 65);
+  s3=new Spike(870, 470, 60, 65);
+  s4=new Spike(935, 470, 60, 65);
   h=new Health(15, 10);
   c1 = new Coins(200, 350, 30, 30);
   f1 = new Fjende(20,380);
@@ -66,6 +72,9 @@ void draw() {
   b3.createBoks();
   b4.createBoks();
   s1.createSpike();
+  s2.createSpike();
+  s3.createSpike();
+  s4.createSpike();
   f1.createFjende();
 
   
