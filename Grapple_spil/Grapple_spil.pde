@@ -31,14 +31,16 @@ void resetAll(){
   started = false;reset=false;
   grappleActive = false;
   p=new Player(new PVector(30, 380)); //laver et objekt "p" som er fra player klassen
-  b1=new Platform(10, 430, 200, 64);
-  b2=new Platform(500, 430, 64, 64);
+  b1=new Platform(-300, 450, 1000, 64);
+  b2=new Platform(1100, 450, 250, 64);
+  b3=new Platform(1300, 450, 150, 64);
+  b4=new Platform(1600,450,50,64);
   s1=new Spike(260, 420, 64, 64);
   h=new Health(15, 10);
   c1 = new Coins(200, 350, 30, 30);
   f1 = new Fjende(20,380);
-  b3 = new Platform(600,350,75,64);
-  b4 = new Platform(800,400,50,64);
+  
+ 
   a=new Animation();
   a.AnimationSetup();
 
@@ -48,7 +50,7 @@ void draw() {
   h.Hearts();
   text(score,450,40);
   image(coinIcon, 425, 27);
-   pushMatrix();
+  pushMatrix();
 
    translate((p.player.x*-1)+250,0.0);
    popMatrix();

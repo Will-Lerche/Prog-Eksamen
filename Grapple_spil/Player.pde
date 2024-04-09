@@ -37,6 +37,9 @@ class Player { //Det her er spiller klassen
 
 
     vel.x = vel.x*0.8;
+    if (onGround){
+      vel.y=0;
+    }
 
 
     if (knapH) acc.x = 1;
