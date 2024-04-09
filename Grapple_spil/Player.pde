@@ -2,7 +2,7 @@ class Player { //Det her er spiller klassen
   boolean right, left;
   float b=50, h=50;
   float g = 0.8;
-  boolean knapH, knapV, knapJ, onGround;
+  boolean knapH, knapV, knapJ, slag, onGround;
   PVector player = new PVector();
   PVector acc = new PVector();
   PVector vel = new PVector();
@@ -25,8 +25,10 @@ class Player { //Det her er spiller klassen
     if (onGround && knapJ ) {
 
       acc.y = -12;
-    } else if (onGround && b1.overlap) {
-      player.y=b1.y-p.b+1;
+    } else if (onGround ) {
+      playerYposCollide(b1.overlap,b1.y);
+      playerYposCollide(b2.overlap,b2.y);
+      //player.y=b1.y-p.b+1;
     } else {
       if (!grappleActive) {
         acc.y = acc.y + g;
@@ -47,15 +49,29 @@ class Player { //Det her er spiller klassen
     // if (knapJ && onGround ) acc.y = -12;
   }
 
+
+ void playerYposCollide(boolean plat,float bY){
+ if (onGround && plat) {
+      player.y=bY-p.b+1;
+    }
+ }
+
+void melee(float fx){
+if(player.x>fx && player.x<fx+50&& slag){
+  fjende1=true;println("bang");
+}
+}
+
   void keyPress() { //bevæger spilleren
     if (keyCode == 'D') {
       knapH = true;
     } else if (keyCode == 'A') {
       knapV = true;
-    } else if (keyCode=='W' && player.y >= 380) {
+    } else if (keyCode=='W' ) {
       knapJ = true;
-      //println("hop! "+frameCount);
-    }
+    }else if (keyCode==' ' ) {
+      slag = true;
+  }
   }
 
   void keyRelease() { //stopper spillerens bevægelse
@@ -65,6 +81,11 @@ class Player { //Det her er spiller klassen
       knapV = false;
     } else if (keyCode=='W') {
       knapJ = false;
-    }
+    }else if (keyCode==' ') {
+      slag = false;
   }
+  }
+  
+  
+  
 }
