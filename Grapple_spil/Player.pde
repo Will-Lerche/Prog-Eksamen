@@ -7,7 +7,6 @@ class Player { //Det her er spiller klassen
   PVector acc = new PVector();
   PVector vel = new PVector();
   PVector Camera = new PVector();
-  
 
 
   Player(PVector play) {
@@ -17,14 +16,17 @@ class Player { //Det her er spiller klassen
   void drawPlayer() {
     strokeWeight(1);
     
-    //rect(player.x, player.y, b, h);
-
+    
     vel.add(acc);
     player.add(vel);
     Camera.add(vel);
     acc.set(0, 0);
    
-    if (onGround && b1.overlap) {
+    if(onGround && knapJ ){ 
+      
+      acc.y = -12; 
+    
+    }else if(onGround && b1.overlap) {
       player.y=b1.y-p.b+1;
    
     } else  {
@@ -38,7 +40,7 @@ class Player { //Det her er spiller klassen
 
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
-    if (knapJ && onGround ) acc.y = -12; 
+   // if (knapJ && onGround ) acc.y = -12; 
    
 
 

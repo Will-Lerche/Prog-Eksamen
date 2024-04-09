@@ -38,7 +38,7 @@ class Pendulum {
   void update() {
       float gravity = 0.4;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-      if (p.player.y >= 380) {
+      if (p.onGround) {
         aVelocity = 0.0;
       } else {
         aVelocity += aAcceleration;                 // Increment velocity
