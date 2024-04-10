@@ -21,8 +21,8 @@ class Fjende extends Overlap{
   
   
   void fjendeCollison(boolean blok,int fx){
-  if(blok && p.player.x<fx) x=x-1;//hvis en spiller er på blok x og player har højere x værdi 
- if(blok && p.player.x>fx) x=x+1;
+  if(blok && p.player.x<fx) {x=x-1; ea.reverseFactor = -1;}//hvis en spiller er på blok x og player har højere x værdi 
+ if(blok && p.player.x>fx) {x=x+1; ea.reverseFactor = 1;}
   }
   
 }

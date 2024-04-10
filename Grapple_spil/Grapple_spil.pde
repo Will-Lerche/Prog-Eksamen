@@ -10,7 +10,6 @@ Platform b2;
 Platform b3;
 Platform b4;
 Health h;
-Animation a;
 Coins c1;
 Coins c2;
 Coins c3;
@@ -58,8 +57,6 @@ void resetAll(){
   fjende1=false;
   f2 = new Fjende(300, 350, 64,64);
   fjende2 = false;
- 
-  a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
 void draw() {
   
@@ -74,7 +71,6 @@ void draw() {
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
-  a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
  
 
@@ -137,7 +133,6 @@ void draw() {
 void keyPressed() {
   if (!grappleActive) {
     p.keyPress();
-    a.animationtryk();
   } else { 
     g.keyPress();
     p.keyRelease();

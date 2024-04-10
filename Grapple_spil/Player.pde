@@ -7,15 +7,16 @@ class Player { //Det her er spiller klassen
   PVector acc = new PVector();
   PVector vel = new PVector();
   PVector Camera = new PVector();
-
+  Animation a;
 
   Player(PVector play) {
     player = play;
+    a=new Animation("sprite.png",4,2,5,player.x,player.y);
   }
 
   void drawPlayer() {
     strokeWeight(1);
-
+    a.Animater(); //player animeres
     a.x = player.x;
     a.y = player.y;
     
@@ -63,7 +64,9 @@ class Player { //Det her er spiller klassen
   void keyPress() { //bevæger spilleren
     if (keyCode == 'D') {
       knapH = true;
+      a.reverseFactor=1;
     } else if (keyCode == 'A') {
+      a.reverseFactor=-1;
       knapV = true;
     } else if (keyCode=='W' ) {
       knapJ = true;

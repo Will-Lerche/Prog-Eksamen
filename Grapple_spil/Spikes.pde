@@ -1,4 +1,5 @@
 class Spike extends Overlap {
+  
   PImage spike;
   Spike(int xin, int yin, int hin, int bin) {
     x = xin; 

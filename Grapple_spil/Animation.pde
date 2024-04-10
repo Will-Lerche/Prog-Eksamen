@@ -51,9 +51,4 @@ class Animation {
 
     popMatrix();
   }
-
-  void animationtryk() {
-    if (p.knapH)reverseFactor=1;
-    if (p.knapV)reverseFactor=-1;
-  }
 }
