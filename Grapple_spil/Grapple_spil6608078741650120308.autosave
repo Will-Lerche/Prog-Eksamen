@@ -1,5 +1,5 @@
 Player p;
-Grappling g;
+Pendulum g;
 Spike s1;
 Spike s2;
 Spike s3;
@@ -17,14 +17,13 @@ Coins c3;
 Coins c4;
 Coins c5;
 Fjende f1;
-Fjende f2;
 
 
 int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
 int score = 0;
 boolean started,reset=false;
 boolean grappleActive = false;
-boolean fjende1,fjende2;
+boolean fjende1;
 PImage coinIcon;
 
 void setup() {
@@ -56,13 +55,10 @@ void resetAll(){
   c5 = new Coins(870, 380, 30, 30);
   f1 = new Fjende(-100,360,64,64);
   fjende1=false;
-  f2 = new Fjende(300, 350, 64,64);
-  fjende2 = false;
  
   a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
 void draw() {
-  
   background(100);
   h.Hearts();
   text(score,450,40);
@@ -77,45 +73,25 @@ void draw() {
   a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
  
-
-  b1.createBoks();
-  b2.createBoks();
-  b3.createBoks();
-  b4.createBoks();
-  s1.createSpike();
-  s2.createSpike();
-  s3.createSpike();
-  s4.createSpike();
-  s5.createSpike();
-  c1.drawCoins();
-  c2.drawCoins();
-  c3.drawCoins();
-  c4.drawCoins();
-  c5.drawCoins();
-  f1.fjendeCollison(b1.overlap,f1.x);
-  if(p.player.x>f1.x && p.player.x<f1.x+50&& p.slag)fjende1=true;
-  f2.fjendeCollison(b2.overlap,f2.x);
-  if(p.player.x>f2.x && p.player.x<f2.x+50&& p.slag)fjende2=true;
+ objektFunctions();
  
   
   if (!fjende1)f1.createFjende();
-  if (!fjende2)f2.createFjende();
   
  
   if (b1.overlap || b2.overlap|| b3.overlap|| b4.overlap) p.onGround = true; 
   else p.onGround = false;// hvis den overlapper så er onGround true ellers false
-  if (s1.overlap  ||s2.overlap||s3.overlap||s4.overlap|| f1.overlap||f2.overlap) livsTimer--; //hvis man rammer spike så begynder en timer
-  
-  if (livsTimer < 0 && s1.overlap || livsTimer < 0 && s2.overlap) { //her mister man livet og timeren reseter
+  if (s1.overlap  || f1.overlap) livsTimer--; //hvis man rammer spike så begynder en timer 
+  if (livsTimer < 0 && s1.overlap  ) { //her mister man livet og timeren reseter
     h.liv--; 
     livsTimer = 60;
   }
-   if (livsTimer < 0 && f1.overlap && !fjende1||livsTimer < 0 && f2.overlap && !fjende2) { //her mister man livet og timeren reseter
+   if (livsTimer < 0 && f1.overlap && !fjende1) { //her mister man livet og timeren reseter
     h.liv--; 
     livsTimer = 60;
   }
   
-  //println(f1.overlap);
+  println(f1.overlap);
    
   if (h.liv<=0 || p.player.y>1000) resetAll();//started=false;
 
@@ -129,9 +105,6 @@ void draw() {
  }
    
   }
-    println(mouseX + p.player.x+250,mouseY,p.player.x+250);
-    fill(255);
-    ellipse(mouseX+p.player.x-250,mouseY,10,10);
 }
 
 void keyPressed() {
@@ -154,7 +127,7 @@ void keyReleased() {
 
 void mousePressed() {
 
-  g = new Grappling();
+  g = new Pendulum();
 
   grappleActive = true;
   //println("waaah");
@@ -163,4 +136,26 @@ void mousePressed() {
 void mouseReleased() {
   grappleActive = false;
   p.acc.x *= g.aAcceleration;
+}
+
+
+
+
+void objektFunctions(){
+ b1.createBoks();
+  b2.createBoks();
+  b3.createBoks();
+  b4.createBoks();
+  s1.createSpike();
+  s2.createSpike();
+  s3.createSpike();
+  s4.createSpike();
+  s5.createSpike();
+  c1.drawCoins();
+  c2.drawCoins();
+  c3.drawCoins();
+  c4.drawCoins();
+  c5.drawCoins();
+  f1.fjendeCollison(b1.overlap,f1.x);
+  p.melee(f1.x);
 }
