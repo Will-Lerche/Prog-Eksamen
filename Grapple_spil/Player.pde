@@ -49,6 +49,7 @@ class Player { //Det her er spiller klassen
 
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
+    if(!knapV && !knapH) a.animationBillede = false; else a.animationBillede = true;
     // if (knapJ && onGround ) acc.y = -12;
   }
 
