@@ -1,5 +1,5 @@
 Player p;
-Pendulum g;
+Grappling g;
 Spike s1;
 Spike s2;
 Spike s3;
@@ -59,6 +59,7 @@ void resetAll(){
   a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
 void draw() {
+  
   background(100);
   h.Hearts();
   text(score,450,40);
@@ -106,7 +107,7 @@ void draw() {
     livsTimer = 60;
   }
   
-  println(f1.overlap);
+  //println(f1.overlap);
    
   if (h.liv<=0 || p.player.y>1000) resetAll();//started=false;
 
@@ -120,6 +121,9 @@ void draw() {
  }
    
   }
+    println(mouseX + p.player.x+250,mouseY,p.player.x+250);
+    fill(255);
+    ellipse(mouseX+p.player.x-250,mouseY,10,10);
 }
 
 void keyPressed() {
@@ -142,7 +146,7 @@ void keyReleased() {
 
 void mousePressed() {
 
-  g = new Pendulum();
+  g = new Grappling();
 
   grappleActive = true;
   //println("waaah");

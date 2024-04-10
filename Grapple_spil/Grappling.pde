@@ -1,4 +1,4 @@
-class Pendulum {
+class Grappling {
 
   PVector position;    // position of pendulum ball
   PVector origin;      // position of arm origin
@@ -15,14 +15,18 @@ class Pendulum {
 
 
   // This constructor could be improved to allow a greater variety of pendulums
-  Pendulum() {
+  Grappling() {
     // Fill all variables
 
     position = new PVector();
-
-    origin = new PVector(mouseX, mouseY);
+//kompensation for translate af koordinatsystem
+//mouseX 
+//skal erstatters med
+//mouseX + p.player.x -250
+float nyMousex = mouseX + p.player.x -250;
+    origin = new PVector(nyMousex, mouseY);
     r = mag(origin.x-(p.player.x), origin.y-(p.player.y));
-    angle = atan2(p.player.x-mouseX, p.player.y-mouseY);
+    angle = atan2(p.player.x-nyMousex, p.player.y-mouseY);
     aVelocity = 0.0;
     aAcceleration = 0.0;
     damping = 0.995;   // Arbitrary damping

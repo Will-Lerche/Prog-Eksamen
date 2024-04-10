@@ -5,10 +5,10 @@ class Animation {
   int row, column;       //row og column bruges til at vælge hvilken "nummer" frame
   int Ax=0, Ay=0;           //x og y anvendes til at finde øverste venstre hjørne af denne frame 
   int reverseFactor = 1; //reverseFactor bruges til at spejlvende en frame
-  int w,h, antal;
+  int w,h, fps;
   float x,y;
   
-  Animation(String spriteSheet, int win, int hin, int antalin, float xin, float yin) {
+  Animation(String spriteSheet, int win, int hin, int fpsin, float xin, float yin) {
     imageMode(CENTER);
     spritesheet = loadImage(spriteSheet);
     wFrame = spritesheet.width/win;
@@ -17,12 +17,12 @@ class Animation {
     h = hin;
     x = xin;
     y = yin;
-    antal = antalin;
+    fps = fpsin;
    
   } 
 
   void Animater() {
-    if (frameCount%antal==0) { //animationen er lidt hurtig, så jeg ændrer kun frame hver 5. billede
+    if (frameCount%fps==0) { //animationen er lidt hurtig, så jeg ændrer kun frame hver 5. billede
 
       //udvælgelse af næste frame
       if (column<w-1) { 

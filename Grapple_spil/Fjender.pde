@@ -7,7 +7,7 @@ class Fjende extends Overlap{
     y = yin; 
     h=hin;
     b=bin;
-    ea = new Animation("spritesheetvolt_run.png",5,2,9,x,y);
+    ea = new Animation("spritesheetvolt_run.png",5,2,5,x,y);
   }
   
   void createFjende(){
