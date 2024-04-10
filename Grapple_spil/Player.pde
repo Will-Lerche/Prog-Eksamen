@@ -1,5 +1,5 @@
 class Player { //Det her er spiller klassen
-  boolean right, left;
+ // boolean right, left;
   float b=50, h=50;
   float g = 0.8;
   boolean knapH, knapV, knapJ, slag, onGround;

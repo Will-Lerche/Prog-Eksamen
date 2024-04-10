@@ -1,5 +1,5 @@
 class Fjende extends Overlap{
-  float Fxpos, Fypos;
+
   Animation ea;
 
    Fjende(int xin, int yin, int hin, int bin) {
@@ -20,7 +20,7 @@ class Fjende extends Overlap{
   }
   
   
-  void fjendeCollison(boolean blok,int fx){
+  void fjendeCollison(boolean blok,float fx){
   if(blok && p.player.x<fx) {x=x-1; ea.reverseFactor = -1;}//hvis en spiller er på blok x og player har højere x værdi 
  if(blok && p.player.x>fx) {x=x+1; ea.reverseFactor = 1;}
   }

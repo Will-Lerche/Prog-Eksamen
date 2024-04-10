@@ -1,6 +1,6 @@
 class Overlap {
   //Koordinat, højde og bredde til objektet
-  int x; 
+  float x; 
   float y; 
   int h; 
   int b;
