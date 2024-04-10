@@ -58,11 +58,7 @@ class Player { //Det her er spiller klassen
     }
  }
 
-void melee(float fx){
-if(player.x>fx && player.x<fx+50&& slag){
-  fjende1=true;println("bang");
-}
-}
+
 
   void keyPress() { //bevæger spilleren
     if (keyCode == 'D') {

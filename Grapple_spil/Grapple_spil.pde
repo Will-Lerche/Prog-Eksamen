@@ -17,13 +17,14 @@ Coins c3;
 Coins c4;
 Coins c5;
 Fjende f1;
+Fjende f2;
 
 
 int livsTimer = 60; // cirka hvert sekund (computer afhængigt)
 int score = 0;
 boolean started,reset=false;
 boolean grappleActive = false;
-boolean fjende1;
+boolean fjende1,fjende2;
 PImage coinIcon;
 
 void setup() {
@@ -55,6 +56,8 @@ void resetAll(){
   c5 = new Coins(870, 380, 30, 30);
   f1 = new Fjende(-100,360,64,64);
   fjende1=false;
+  f2 = new Fjende(300, 350, 64,64);
+  fjende2 = false;
  
   a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
@@ -90,9 +93,13 @@ void draw() {
   c4.drawCoins();
   c5.drawCoins();
   f1.fjendeCollison(b1.overlap,f1.x);
-  p.melee(f1.x);
+  if(p.player.x>f1.x && p.player.x<f1.x+50&& p.slag)fjende1=true;
+  f2.fjendeCollison(b2.overlap,f2.x);
+  if(p.player.x>f2.x && p.player.x<f2.x+50&& p.slag)fjende2=true;
+ 
   
   if (!fjende1)f1.createFjende();
+  if (!fjende2)f2.createFjende();
   
  
   if (b1.overlap || b2.overlap|| b3.overlap|| b4.overlap) p.onGround = true; 
