@@ -10,6 +10,7 @@ Platform b2;
 Platform b3;
 Platform b4;
 Health h;
+Animation a;
 Coins c1;
 Coins c2;
 Coins c3;
@@ -41,7 +42,7 @@ void resetAll(){
   b1=new Platform(-300, 450, 500, 64);
   b2=new Platform(300, 400, 460, 64);
   b3=new Platform(990, 400, 150, 64);
-  b4=new Platform(1600,450,50,64);
+  b4=new Platform(1300,450,500,64);
   s1=new Spike(250, 470, 60, 65);
   s2=new Spike(530, 370, 60,65);
   s3=new Spike(805, 470, 60, 65);
@@ -57,6 +58,8 @@ void resetAll(){
   fjende1=false;
   f2 = new Fjende(300, 350, 64,64);
   fjende2 = false;
+ 
+  a=new Animation("sprite.png",4,2,5,p.player.x,p.player.y);
 }
 void draw() {
   
@@ -71,6 +74,7 @@ void draw() {
   if (started){
     reset=true;
   if (grappleActive) g.go(); // Grapllinghook laves, hvis den er aktiveret
+  a.Animater(); //player animeres
   p.drawPlayer();  // player tegnes
  
 
@@ -111,7 +115,7 @@ void draw() {
     livsTimer = 60;
   }
   
-  //println(f1.overlap);
+  println(f1.overlap);
    
   if (h.liv<=0 || p.player.y>1000) resetAll();//started=false;
 
@@ -125,7 +129,7 @@ void draw() {
  }
    
   }
-  
+    //println(mouseX + p.player.x+250,mouseY,p.player.x+250);
     fill(255);
     ellipse(mouseX+p.player.x-250,mouseY,10,10);
 }
@@ -133,9 +137,10 @@ void draw() {
 void keyPressed() {
   if (!grappleActive) {
     p.keyPress();
+    a.animationtryk();
   } else { 
     g.keyPress();
-    p.knapH = false; p.knapV = false; p.knapJ = false;
+    p.keyRelease();
   }
 }
 

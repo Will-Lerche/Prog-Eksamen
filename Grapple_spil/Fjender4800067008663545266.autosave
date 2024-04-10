@@ -3,7 +3,7 @@ class Fjende extends Overlap{
   Animation ea;
 
    Fjende(int xin, int yin, int hin, int bin) {
-    x = xin; 
+   // x = xin; 
     y = yin; 
     h=hin;
     b=bin;
@@ -12,7 +12,7 @@ class Fjende extends Overlap{
   
   void createFjende(){
     
-  
+  rect(x, y, h, b); // fjende
    overlap();
    ea.x = x;
    ea.y = y;
@@ -21,8 +21,8 @@ class Fjende extends Overlap{
   
   
   void fjendeCollison(boolean blok,int fx){
-  if(blok && p.player.x<fx) {x=x-1; ea.reverseFactor = -1;}//hvis en spiller er på blok x og player har højere x værdi 
- if(blok && p.player.x>fx) {x=x+1; ea.reverseFactor = 1;}
+  if(blok && p.player.x<fx) x=x-1;//hvis en spiller er på blok x og player har højere x værdi 
+ if(blok && p.player.x>fx) x=x+1;
   }
   
 }
