@@ -135,7 +135,7 @@ void keyPressed() {
     p.keyPress();
   } else { 
     g.keyPress();
-    p.keyRelease();
+    p.knapH = false; p.knapV = false; p.knapJ = false;
   }
 }
 

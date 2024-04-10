@@ -50,7 +50,7 @@ class Animation {
       //billedet var alt for stort så det er sat til 100X100 pixels istedet
       image(sprite, reverseFactor*x + reverseFactor*20, y+10, 100, 100);    } else {
         PImage idle = loadImage("doraemon1.png");
-        image(idle, reverseFactor*x + reverseFactor*20, y+10, 100, 100);
+        image(idle, reverseFactor*x + reverseFactor*20, y+10, 160, 100);
       }
 
 
