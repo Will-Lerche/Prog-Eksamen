@@ -89,7 +89,7 @@ void draw() {
   c4.drawCoins();
   c5.drawCoins();
   f1.fjendeCollison(b1.overlap,f1.x);
-  if(p.player.x>f1.x && p.player.x<f1.x+50&& p.slag)fjende1=true;
+  //if(p.player.x>f1.x && p.player.x<f1.x+150&& p.slag)fjende1=true;
   f2.fjendeCollison(b2.overlap,f2.x);
   if(p.player.x>f2.x && p.player.x<f2.x+50&& p.slag)fjende2=true;
  
@@ -100,6 +100,7 @@ void draw() {
  
   if (b1.overlap || b2.overlap|| b3.overlap|| b4.overlap) p.onGround = true; 
   else p.onGround = false;// hvis den overlapper så er onGround true ellers false
+  
   if (s1.overlap  ||s2.overlap||s3.overlap||s4.overlap|| f1.overlap||f2.overlap) livsTimer--; //hvis man rammer spike så begynder en timer
   
   if (livsTimer < 0 && s1.overlap || livsTimer < 0 && s2.overlap) { //her mister man livet og timeren reseter
