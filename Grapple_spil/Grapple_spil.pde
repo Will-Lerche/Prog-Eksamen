@@ -153,7 +153,8 @@ void draw() {
  }
   }
   else { textSize(40); text("press to start",-100,250);
-   textSize(20);text("A for left, D for right, W for jump, SPACE for attack",-180,150);textSize(40);
+   textSize(15);text("A for left, D for right, W for jump, SPACE for attack, click for grapple",-180,150);
+   textSize(20);text("To win get 10 coins",-80,350);textSize(40);
    if(mousePressed){
    started=true;
    h.liv=3;
