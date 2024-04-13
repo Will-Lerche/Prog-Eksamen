@@ -89,9 +89,8 @@ void draw() {
   c4.drawCoins();
   c5.drawCoins();
   f1.fjendeCollison(b1.overlap,f1.x);
-  //if(p.player.x>f1.x && p.player.x<f1.x+150&& p.slag)fjende1=true;
   f2.fjendeCollison(b2.overlap,f2.x);
-  if(p.player.x>f2.x && p.player.x<f2.x+50&& p.slag)fjende2=true;
+
  
   
   if (!fjende1)f1.createFjende();
