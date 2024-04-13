@@ -31,6 +31,9 @@ class Player { //Det her er spiller klassen
     } else if (onGround ) {
       playerYposCollide(b1.overlap,b1.y);
       playerYposCollide(b2.overlap,b2.y);
+      playerYposCollide(b3.overlap,b3.y);
+      playerYposCollide(b4.overlap,b4.y);
+      playerYposCollide(b5.overlap,b5.y);
       //player.y=b1.y-p.b+1;
     } else {
       if (!grappleActive) {
@@ -50,12 +53,12 @@ class Player { //Det her er spiller klassen
     if (knapH) acc.x = 1;
     if (knapV) acc.x = -1;
     if(!knapV && !knapH) a.animationBillede = false; else a.animationBillede = true;
-    // if (knapJ && onGround ) acc.y = -12;
-      if(p.player.x>f1.x && p.player.x<f1.x+100&& p.slag&& a.reverseFactor==-1)fjende1=true;
-      if(p.player.x<f1.x && p.player.x<f1.x-100&& p.slag&& a.reverseFactor==1)fjende1=true;
-      
-      if(p.player.x>f2.x && p.player.x<f2.x+100&& p.slag&& a.reverseFactor==-1)fjende2=true;
-      if(p.player.x<f2.x && p.player.x<f2.x-100&& p.slag&& a.reverseFactor==1)fjende2=true;
+
+      if (p.player.x > f1.x && p.player.x < f1.x + 100 && p.slag && a.reverseFactor == 1) fjende1 = true;
+if (p.player.x < f1.x && p.player.x > f1.x - 100 && p.slag && a.reverseFactor == -1) fjende1 = true;
+
+if (p.player.x > f2.x && p.player.x < f2.x + 100 && p.slag && a.reverseFactor == 1) fjende2 = true;
+if (p.player.x < f2.x && p.player.x > f2.x - 100 && p.slag && a.reverseFactor == -1) fjende2 = true;
     
   }
 
