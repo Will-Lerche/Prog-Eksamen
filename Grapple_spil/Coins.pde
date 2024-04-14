@@ -24,6 +24,7 @@ class Coins extends Overlap {
       if (overlap()) {
         score ++;
         coin = false;
+        println("overlap");
       }
      
     }

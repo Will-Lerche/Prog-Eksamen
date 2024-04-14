@@ -1,54 +1,49 @@
 class Grappling {
 
-  PVector position;    // position of pendulum ball
-  PVector origin;      // position of arm origin
-  float r;             // Length of arm
-  float angle;         // Pendulum arm angle
-  float aVelocity;     // Angle velocity
-  float aAcceleration; // Angle acceleration
+  PVector position;    // Spiller position
+  PVector origin;      // Der var grappling hook rammer
+  float r;             // Distance fra origin til spiller
+  float angle;         // Vinklen på rebet til grappling hook
+  float aVelocity;     // Vinkel acceleration
+  float aAcceleration; // Vinkel acceleration
 
-  float ballr;         // Ball radius
-  float damping;       // Arbitary damping amount
+  float damping;
   Boolean knapJ = false;
   Boolean knapN = false;
-  boolean dragging = false;
 
 
-  // This constructor could be improved to allow a greater variety of pendulums
+ 
   Grappling() {
-    // Fill all variables
 
     position = new PVector();
-//kompensation for translate af koordinatsystem
-//mouseX 
-//skal erstatters med
-//mouseX + p.player.x -250
-float nyMousex = mouseX + p.player.x -250;
+    //kompensation for translate af koordinatsystem
+    //mouseX 
+    //skal erstatters med
+    //mouseX + p.player.x -250
+    float nyMousex = mouseX + p.player.x -250;
     origin = new PVector(nyMousex, mouseY);
     r = mag(origin.x-(p.player.x), origin.y-(p.player.y));
     angle = atan2(p.player.x-nyMousex, p.player.y-mouseY);
     aVelocity = 0.0;
     aAcceleration = 0.0;
-    damping = 0.995;   // Arbitrary damping
-    ballr = 48.0;      // Arbitrary ball radius
+    damping = 0.995;   // Hvor meget kraft spilleren mister når den svinger
   }
 
   void go() {
     update();
-    //drag();    //for user interaction
     display();
   }
 
-  // Function to update position
+  // Funktionen, som hele tiden opdaterer positionen på spiller
   void update() {
-      float gravity = 0.4;                              // Arbitrary constant
-      aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
+      float gravity = 0.4;                              // konstanten gravity
+      aAcceleration = (-1 * gravity / r) * sin(angle);  // udregner accelerationen (see: http://www.myphysicslab.com/pendulum1.html)
       if (p.onGround) {
         aVelocity = 0.0;
       } else {
-        aVelocity += aAcceleration;                 // Increment velocity
-        aVelocity *= damping;                       // Arbitrary damping
-        angle += aVelocity;                         // Increment angle
+        aVelocity += aAcceleration;                     // ligger acceleariotionen til velocity
+        aVelocity *= damping;                           // ganger med damping, så man tager noget kraft af
+        angle += aVelocity;                             // ligger til vinklen for at få opdaterede position
      
       if (knapJ && r>1) r += -1;
       if (knapN && p.player.y <= 380) r++;
@@ -56,8 +51,8 @@ float nyMousex = mouseX + p.player.x -250;
   }
 
   void display() {
-    position.set(r*sin(angle), r*cos(angle), 0);         // Polar to cartesian conversion
-    position.add(origin);                              // Make sure the position is relative to the pendulum's origin
+    position.set(r*sin(angle), r*cos(angle), 0);         // udregner positionerne for spilleren med cos og sin til vinkel gange radius
+    position.add(origin);                              // lægger origin til for at gøre så koordinaterne er baseret på det
 
     stroke(0);
     strokeWeight(2);

@@ -117,7 +117,7 @@ void draw() {
   
   if (!fjende1)f1.createFjende();
   if (!fjende2)f2.createFjende();
-  println(fjende2);
+  //println(fjende2);
  
   if (b1.overlap || b2.overlap|| b3.overlap|| b4.overlap|| b5.overlap) p.onGround = true; 
   else p.onGround = false;// hvis den overlapper så er onGround true ellers false
