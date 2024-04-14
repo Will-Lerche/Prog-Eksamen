@@ -61,7 +61,6 @@ class Grappling {
     line(origin.x, origin.y, p.player.x+25, p.player.y+25);
     ellipseMode(CENTER);
     fill(255);
-    if (dragging) fill(0);
     // Draw the ball
     p.player = position;
   }
