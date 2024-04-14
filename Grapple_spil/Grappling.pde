@@ -36,8 +36,9 @@ class Grappling {
 
   // Funktionen, som hele tiden opdaterer positionen på spiller
   void update() {
-      float gravity = 0.4;                              // konstanten gravity
-      aAcceleration = (-1 * gravity / r) * sin(angle);  // udregner accelerationen (see: http://www.myphysicslab.com/pendulum1.html)
+      float gravity = 0.5;                              // konstanten gravity
+      aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
+      
       if (p.onGround) {
         aVelocity = 0.0;
       } else {
@@ -46,7 +47,7 @@ class Grappling {
         angle += aVelocity;                             // ligger til vinklen for at få opdaterede position
      
       if (knapJ && r>1) r += -1;
-      if (knapN && p.player.y <= 380) r++;
+      if (knapN && !p.onGround) r++;
     }
   }
 
