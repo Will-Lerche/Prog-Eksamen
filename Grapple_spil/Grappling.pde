@@ -41,7 +41,7 @@ float nyMousex = mouseX + p.player.x -250;
 
   // Function to update position
   void update() {
-      float gravity = 0.4;                              // Arbitrary constant
+      float gravity = 0.5;                              // Arbitrary constant
       aAcceleration = (-1 * gravity / r) * sin(angle);  // Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
       if (p.onGround) {
         aVelocity = 0.0;
@@ -51,7 +51,7 @@ float nyMousex = mouseX + p.player.x -250;
         angle += aVelocity;                         // Increment angle
      
       if (knapJ && r>1) r += -1;
-      if (knapN && p.player.y <= 380) r++;
+      if (knapN && !p.onGround) r++;
     }
   }
 
